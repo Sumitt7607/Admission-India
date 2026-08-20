@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="g8" cx="50%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#d52d2d"/>
+      <stop offset="100%" stop-color="#CC0000"/>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="#F5A623"/>
+  <circle cx="100" cy="100" r="91" fill="#CC0000"/>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="100" cy="100" r="82" fill="url(#g8)"/>
+  <line x1="100" y1="22" x2="100" y2="178" stroke="#F5A623" stroke-width="0.5" opacity="0.25"/>
+  <line x1="22" y1="100" x2="178" y2="100" stroke="#F5A623" stroke-width="0.5" opacity="0.25"/>
+  <text text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" fill="#ffffff" font-size="28" letter-spacing="1.5">
+    <tspan x="100" y="95.0">KEA</tspan>
+  </text>
+  <text text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="500" fill="#F5A623" font-size="9.5" letter-spacing="0.5" opacity="0.9">
+    <tspan x="100" y="117.2">Karnataka</tspan>
+  </text>
+  <path id="arc8" d="M 32,142 A 78,78 0 0,0 168,142" fill="none"/>
+  <text font-family="Arial" font-size="7.5" fill="#F5A623" opacity="0.65" letter-spacing="1">
+    <textPath href="#arc8" startOffset="50%" text-anchor="middle">INDIA MEDICAL COUNSELLING</textPath>
+  </text>
+</svg>

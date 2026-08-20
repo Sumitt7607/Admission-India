@@ -254,16 +254,16 @@ function LogoCard({
   short: string;
 }) {
   return (
-    <div className="group mx-3.5 flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl border border-border/80 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl">
+    <div className="group mx-2.5 sm:mx-3.5 flex h-24 sm:h-32 w-52 sm:w-64 shrink-0 items-center justify-center rounded-2xl border border-border/80 bg-white px-4 sm:px-6 py-3 sm:py-4 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl">
       {logo ? (
         <img
           src={logo}
           alt={name}
-          className="h-20 max-h-20 w-auto max-w-[210px] object-contain transition-transform duration-300 group-hover:scale-105"
+          className="h-14 sm:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[210px] object-contain transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
       ) : (
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-lg font-bold tracking-tight text-white shadow-md transition-transform duration-300 group-hover:scale-105">
+        <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-primary text-base sm:text-lg font-bold tracking-tight text-white shadow-md transition-transform duration-300 group-hover:scale-105">
           {short.slice(0, 4)}
         </div>
       )}
@@ -284,33 +284,35 @@ function Marquee({
 }) {
   const doubled = items.length < 8 ? [...items, ...items, ...items, ...items] : [...items, ...items];
   return (
-    <section className="relative overflow-hidden border-y border-border bg-card/60 py-12">
-      <div className="mx-auto mb-7 max-w-7xl px-4">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div className="flex items-center gap-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
-            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">
+    <section className="relative overflow-hidden border-y border-border bg-card/60 py-8 sm:py-12">
+      <div className="mx-auto mb-5 sm:mb-7 max-w-7xl px-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span className="h-2 sm:h-2.5 w-2 sm:w-2.5 rounded-full bg-primary animate-pulse" />
+            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-foreground">
               {label}
             </h2>
           </div>
-          <span className="text-xs font-medium text-muted-foreground">
+          <span className="text-[11px] sm:text-xs font-medium text-muted-foreground">
             {subtitle}
           </span>
         </div>
       </div>
 
-      {/* edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-36 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-36 bg-gradient-to-l from-background to-transparent" />
+      {/* Scrolling track with scoped edge fades */}
+      <div className="relative w-full overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 sm:w-24 bg-gradient-to-r from-background via-background/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 sm:w-24 bg-gradient-to-l from-background via-background/70 to-transparent" />
 
-      <div
-        className={`flex w-max ${
-          direction === "ltr" ? "marquee-medical" : "marquee-engineering"
-        } marquee-pause-hover`}
-      >
-        {doubled.map((c, i) => (
-          <LogoCard key={`${c.short}-${i}`} {...c} />
-        ))}
+        <div
+          className={`flex w-max ${
+            direction === "ltr" ? "marquee-medical" : "marquee-engineering"
+          } marquee-pause-hover`}
+        >
+          {doubled.map((c, i) => (
+            <LogoCard key={`${c.short}-${i}`} {...c} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -1350,133 +1352,13 @@ function Index() {
         )}
       </header>
 
-      {/* Engineering Counselling Ticker Strip */}
-      {(() => {
-        const counsellingItems = [
-          { name: "JAC Delhi", full: "Joint Admission Counselling Delhi" },
-          { name: "JOSAA", full: "Joint Seat Allocation Authority" },
-          { name: "IPU", full: "Indraprastha University" },
-          { name: "AKTU", full: "Abdul Kalam Technical University" },
-          { name: "HSTES", full: "Haryana State Technical Education Society" },
-          { name: "COMEDK", full: "Engineering Colleges of Karnataka" },
-          { name: "MHT-CET", full: "Maharashtra Common Entrance Test" },
-          { name: "REAP", full: "Rajasthan Engineering Admission Process" },
-          { name: "CUET", full: "Common University Entrance Test" },
-          { name: "DSEU", full: "Delhi Skill & Entrepreneurship University" },
-        ];
-        const doubled = [...counsellingItems, ...counsellingItems];
-        return (
-          <div className="flex items-center border-b border-border/60 bg-gradient-to-r from-primary/5 via-background to-primary/5 py-2">
-            {/* Static label — always visible, never overlaps */}
-            <div className="shrink-0 pl-3 pr-2">
-              <span className="flex items-center gap-1 rounded-full border border-primary/30 bg-primary px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow whitespace-nowrap">
-                <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
-                <span className="hidden xs:inline">Engineering</span> Counselling
-              </span>
-            </div>
-
-            {/* Scrolling track inside its own overflow-hidden box */}
-            <div className="relative min-w-0 flex-1 overflow-hidden">
-              {/* Right fade mask */}
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" />
-
-              <div className="flex w-max counselling-ticker counselling-ticker-pause">
-                {doubled.map((item, i) => (
-                  <span
-                    key={`${item.name}-${i}`}
-                    className="group mx-4 flex shrink-0 items-center gap-1.5"
-                  >
-                    <span className="rounded-md border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[11px] sm:text-xs font-extrabold uppercase tracking-wide text-primary transition group-hover:bg-primary group-hover:text-primary-foreground whitespace-nowrap">
-                      {item.name}
-                    </span>
-                    <span className="hidden md:inline text-xs font-medium text-muted-foreground whitespace-nowrap">
-                      {item.full}
-                    </span>
-                    <span className="text-primary/30 text-sm select-none">◆</span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-      })()}
-
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-8 pb-20 sm:pt-14 sm:pb-28">
+      <section className="relative overflow-hidden pt-6 pb-12 sm:pt-14 sm:pb-20">
         <div className="hero-grid-bg absolute inset-0 opacity-40" />
         <div className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-primary/10 blur-3xl" />
         <div className="pointer-events-none absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-primary/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-4">
-          {/* Live Activity Marquee Ticker */}
-          <div className="mx-auto mb-8 max-w-2xl">
-            <div className="flex items-center justify-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-2 text-xs font-semibold text-foreground shadow-xs">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-              <span className="font-bold text-primary">LIVE DESK:</span>
-              <span className="truncate text-muted-foreground">
-                {liveTickerUpdates[tickerIndex]}
-              </span>
-            </div>
-          </div>
-
-          {/* Medical Counselling RTL Ticker */}
-          {(() => {
-            const medCounselling = [
-              { code: "MCC", state: "Central — NEET AIQ" },
-              { code: "AACCC", state: "Andhra Pradesh" },
-              { code: "BCECE", state: "Bihar" },
-              { code: "CGDME", state: "Chhattisgarh" },
-              { code: "GJUGMC", state: "Gujarat" },
-              { code: "HPMET", state: "Himachal Pradesh" },
-              { code: "JKBOPEE", state: "J & K" },
-              { code: "JAC", state: "Jharkhand" },
-              { code: "KEA", state: "Karnataka" },
-              { code: "CETA", state: "Kerala" },
-              { code: "MPPMC", state: "Madhya Pradesh" },
-              { code: "MH CET CELL", state: "Maharashtra" },
-              { code: "OJEE", state: "Odisha" },
-              { code: "PBMCC", state: "Punjab" },
-              { code: "RAJUVAS", state: "Rajasthan" },
-              { code: "TNMC", state: "Tamil Nadu" },
-              { code: "KNRUHS", state: "Telangana" },
-              { code: "UPGMEE", state: "Uttar Pradesh" },
-              { code: "UKPMT", state: "Uttarakhand" },
-              { code: "WBMCC", state: "West Bengal" },
-              { code: "DMET", state: "Delhi" },
-              { code: "ASSAM CEE", state: "Assam" },
-            ];
-            const doubled = [...medCounselling, ...medCounselling];
-            return (
-              <div className="mx-auto mb-6 flex items-center overflow-hidden rounded-xl border border-rose-200/60 bg-gradient-to-r from-rose-50/80 via-white to-rose-50/80 py-1.5 max-w-2xl shadow-sm">
-                {/* Label */}
-                <div className="shrink-0 pl-3 pr-2">
-                  <span className="flex items-center gap-1 rounded-lg border border-rose-400/40 bg-rose-600 px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white shadow whitespace-nowrap">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
-                    Medical
-                  </span>
-                </div>
-                {/* RTL scrolling track */}
-                <div className="relative min-w-0 flex-1 overflow-hidden">
-                  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-rose-50 to-transparent" />
-                  <div className="flex w-max" style={{ animation: "ticker-slide-ltr 35s linear infinite reverse" }}>
-                    {doubled.map((item, i) => (
-                      <span key={`${item.code}-${i}`} className="mx-3 flex shrink-0 items-center gap-1.5">
-                        <span className="rounded border border-rose-300/50 bg-rose-100 px-2 py-0.5 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wide text-rose-700 whitespace-nowrap">
-                          {item.code}
-                        </span>
-                        <span className="text-[10px] sm:text-[11px] font-medium text-rose-500/80 whitespace-nowrap">
-                          {item.state}
-                        </span>
-                        <span className="text-rose-300 text-xs select-none">•</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
-
-
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.15] tracking-tight text-foreground">
               Get Into India’s{" "}
@@ -1486,28 +1368,11 @@ function Index() {
               Colleges
             </h1>
 
-            <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-sm sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="mx-auto mt-3 sm:mt-6 max-w-3xl text-sm sm:text-lg text-muted-foreground leading-relaxed">
               Confused about NEET &amp; JEE cutoffs? We provide direct, transparent,
               and 100% legal admission counselling for MBBS, BDS, B.Tech, and Deemed
               universities under merit, management, and institutional quotas.
             </p>
-
-            {/* Quick Action Buttons */}
-            <div className="mt-6 sm:mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <button
-                onClick={() => openApplyModal("Hero Quick Application")}
-                className="w-full sm:w-auto rounded-xl bg-primary px-5 py-3.5 sm:px-8 sm:py-4 font-display text-sm sm:text-base font-bold text-primary-foreground shadow-xl shadow-primary/25 transition hover:shadow-2xl hover:brightness-110 active:scale-98 flex items-center justify-center gap-2"
-              >
-                <span>Check College &amp; Seat Availability</span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <a
-                href="#institutes"
-                className="w-full sm:w-auto rounded-xl border border-border bg-card px-5 py-3.5 sm:px-8 sm:py-4 font-display text-sm sm:text-base font-semibold text-foreground transition hover:border-primary hover:text-primary flex items-center justify-center gap-2 shadow-xs"
-              >
-                <span>Explore Top 20 Universities</span>
-              </a>
-            </div>
 
             {/* Trust Badges */}
             <div className="mt-8 sm:mt-12 grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-4 max-w-4xl mx-auto text-left">
@@ -1539,6 +1404,129 @@ function Index() {
               })}
             </div>
           </div>
+        </div>
+
+        {/* Dual Authority Counselling Showcase Strips */}
+        <div className="mt-10 sm:mt-14 border-y border-border/70 bg-card/60 backdrop-blur-xs py-3 sm:py-5">
+          <div className="mx-auto mb-2.5 sm:mb-3 flex items-center justify-center gap-2 px-4 text-center">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              Official Counselling Authorities &amp; State Portals Covered
+            </span>
+          </div>
+
+          {/* 1. Engineering Counselling (LTR) */}
+          {(() => {
+            const engineeringItems = [
+              { name: "JAC Delhi", logo: "/logos/jac-delhi.png" },
+              { name: "JOSAA", logo: "/logos/josaa.png" },
+              { name: "IPU", logo: "/logos/ipu.png" },
+              { name: "AKTU", logo: "/logos/aktu.png" },
+              { name: "HSTES", logo: "/logos/hstes.png" },
+              { name: "COMEDK", logo: "/logos/comedk.png" },
+              { name: "MHT-CET", logo: "/logos/mht-cet.png" },
+              { name: "REAP", logo: "/logos/reap.png" },
+              { name: "CUET", logo: "/logos/cuet.png" },
+              { name: "DSEU", logo: "/logos/dseu.png" },
+            ];
+            const doubledEng = [...engineeringItems, ...engineeringItems];
+            return (
+              <div className="relative w-full py-1.5 sm:py-2.5" style={{ overflow: "hidden" }}>
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-28 bg-gradient-to-r from-background via-background/80 to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-28 bg-gradient-to-l from-background via-background/80 to-transparent" />
+
+                <div
+                  className="counselling-ticker counselling-ticker-pause items-center"
+                  style={{ display: "flex", minWidth: "max-content" }}
+                >
+                  {doubledEng.map((item, i) => (
+                    <div
+                      key={`eng-${item.name}-${i}`}
+                      className="group mx-2.5 sm:mx-4 flex shrink-0 items-center gap-2.5 sm:gap-4"
+                    >
+                      <div className="flex flex-col items-center justify-center gap-1.5 rounded-xl sm:rounded-2xl border border-border/80 bg-background/95 px-3 py-2 sm:px-4 sm:py-2.5 shadow-xs transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-primary/50 group-hover:shadow-md group-hover:bg-primary/[0.03] cursor-pointer">
+                        <div className="flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-white p-1 sm:p-1.5 shadow-xs border border-border/50 transition duration-200 group-hover:scale-105">
+                          <img
+                            src={item.logo}
+                            alt={item.name}
+                            className="h-full w-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-foreground group-hover:text-primary transition whitespace-nowrap">
+                          {item.name}
+                        </span>
+                      </div>
+                      <span className="text-primary/25 text-xs select-none">◆</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* 2. Medical Counselling (RTL) */}
+          {(() => {
+            const medItems = [
+              { name: "MCC", logo: "/logos/mcc.png" },
+              { name: "AACCC", logo: "/logos/aaccc.png" },
+              { name: "KEA", logo: "/logos/kea.png" },
+              { name: "KNRUHS", logo: "/logos/knruhs.png" },
+              { name: "Dr. YSRUHS", logo: "/logos/ysruhs.png" },
+              { name: "RUHS", logo: "/logos/ruhs.png" },
+              { name: "BFUHS", logo: "/logos/bfuhs.png" },
+              { name: "TN DME", logo: "/logos/tnmedical.png" },
+              { name: "UPDGME", logo: "/logos/updgme.png" },
+              { name: "DMER MH", logo: "/logos/mht-cet.png" },
+              { name: "BCECEB", logo: "/logos/bihar.png" },
+              { name: "WBMCC", logo: "/logos/west-bengal.png" },
+              { name: "ACPUGMEC", logo: "/logos/gjugmc.png" },
+              { name: "CEE KERALA", logo: "/logos/cee-kerala.png" },
+              { name: "OJEE MED", logo: "/logos/ojee-med.png" },
+              { name: "DME ASSAM", logo: "/logos/assam-dme.png" },
+              { name: "HNBUMU", logo: "/logos/hnbmu-uk.png" },
+              { name: "CGDME", logo: "/logos/chhattisgarh.png" },
+              { name: "JKBOPEE", logo: "/logos/jammu-and-kashmir.png" },
+            ];
+            const doubledMed = [...medItems, ...medItems];
+            return (
+              <div className="relative w-full py-1.5 sm:py-2.5 mt-1 sm:mt-2" style={{ overflow: "hidden" }}>
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-28 bg-gradient-to-r from-background via-background/80 to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-28 bg-gradient-to-l from-background via-background/80 to-transparent" />
+
+                <div
+                  className="counselling-ticker counselling-ticker-pause items-center"
+                  style={{
+                    display: "flex",
+                    minWidth: "max-content",
+                    animationDirection: "reverse",
+                  }}
+                >
+                  {doubledMed.map((item, i) => (
+                    <div
+                      key={`med-${item.name}-${i}`}
+                      className="group mx-2.5 sm:mx-4 flex shrink-0 items-center gap-2.5 sm:gap-4"
+                    >
+                      <div className="flex flex-col items-center justify-center gap-1.5 rounded-xl sm:rounded-2xl border border-rose-200/70 bg-background/95 px-3 py-2 sm:px-4 sm:py-2.5 shadow-xs transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-rose-400/60 group-hover:shadow-md group-hover:bg-rose-50/30 cursor-pointer">
+                        <div className="flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-white p-1 sm:p-1.5 shadow-xs border border-rose-100/80 transition duration-200 group-hover:scale-105">
+                          <img
+                            src={item.logo}
+                            alt={item.name}
+                            className="h-full w-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-rose-700 group-hover:text-rose-600 transition whitespace-nowrap">
+                          {item.name}
+                        </span>
+                      </div>
+                      <span className="text-rose-300/60 text-xs select-none">◆</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
