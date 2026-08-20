@@ -353,7 +353,7 @@ function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
       {/* Top Urgent Alert Bar (Hidden on Mobile) */}
       <div className="hidden sm:block bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-xs">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-1 sm:flex-row sm:gap-4">
@@ -383,17 +383,17 @@ function Index() {
       </div>
 
       {/* Main Navigation */}
-      <header className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-md shadow-primary/25 transition group-hover:scale-105">
-              <GraduationCap className="h-6 w-6 text-white" />
+      <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-4 py-3">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+            <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-primary shadow-md shadow-primary/25 transition group-hover:scale-105">
+              <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-2xl font-black tracking-tight text-foreground leading-none">
+              <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-foreground leading-none">
                 Career<span className="text-primary">4S</span>
               </span>
-              <span className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase mt-0.5">
+              <span className="hidden xs:block text-[9px] sm:text-[10px] font-bold tracking-wider text-muted-foreground uppercase mt-0.5">
                 India's Top Educational Advisory
               </span>
             </div>
@@ -420,7 +420,7 @@ function Index() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href="https://wa.me/919811000000?text=Hi%2C%20I%20need%20admission%20guidance%20for%202026%20batch"
               target="_blank"
@@ -432,7 +432,7 @@ function Index() {
             </a>
             <button
               onClick={() => openApplyModal()}
-              className="rounded-xl bg-primary px-5 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition hover:shadow-lg hover:brightness-110 active:scale-95"
+              className="rounded-xl bg-primary px-3.5 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition hover:shadow-lg hover:brightness-110 active:scale-95 whitespace-nowrap"
             >
               Apply For 2026 Seat
             </button>
@@ -568,7 +568,7 @@ function Index() {
 
 
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+            <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.15] tracking-tight text-foreground">
               Get Into India’s{" "}
               <span className="text-primary underline decoration-primary/30 decoration-wavy decoration-2">
                 Top Medical &amp; Engineering
@@ -576,31 +576,31 @@ function Index() {
               Colleges
             </h1>
 
-            <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-sm sm:text-lg text-muted-foreground leading-relaxed">
               Confused about NEET &amp; JEE cutoffs? We provide direct, transparent,
               and 100% legal admission counselling for MBBS, BDS, B.Tech, and Deemed
               universities under merit, management, and institutional quotas.
             </p>
 
             {/* Quick Action Buttons */}
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-6 sm:mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <button
                 onClick={() => openApplyModal("Hero Quick Application")}
-                className="w-full sm:w-auto rounded-xl bg-primary px-8 py-4 font-display text-base font-bold text-primary-foreground shadow-xl shadow-primary/25 transition hover:shadow-2xl hover:brightness-110 active:scale-98 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto rounded-xl bg-primary px-5 py-3.5 sm:px-8 sm:py-4 font-display text-sm sm:text-base font-bold text-primary-foreground shadow-xl shadow-primary/25 transition hover:shadow-2xl hover:brightness-110 active:scale-98 flex items-center justify-center gap-2"
               >
                 <span>Check College &amp; Seat Availability</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
               <a
                 href="#institutes"
-                className="w-full sm:w-auto rounded-xl border border-border bg-card px-8 py-4 font-display text-base font-semibold text-foreground transition hover:border-primary hover:text-primary flex items-center justify-center gap-2 shadow-xs"
+                className="w-full sm:w-auto rounded-xl border border-border bg-card px-5 py-3.5 sm:px-8 sm:py-4 font-display text-sm sm:text-base font-semibold text-foreground transition hover:border-primary hover:text-primary flex items-center justify-center gap-2 shadow-xs"
               >
                 <span>Explore Top 20 Universities</span>
               </a>
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 max-w-4xl mx-auto text-left">
+            <div className="mt-8 sm:mt-12 grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-4 max-w-4xl mx-auto text-left">
               {[
                 { label: "12,500+ Students Placed", sub: "15+ Years Legacy", icon: Users },
                 { label: "650+ Partner Institutes", sub: "NMC & AICTE Approved", icon: Building2 },
@@ -611,16 +611,16 @@ function Index() {
                 return (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 rounded-2xl border border-border/80 bg-card/80 p-3.5 shadow-xs backdrop-blur-xs"
+                    className="flex items-center gap-2 sm:gap-3 rounded-2xl border border-border/80 bg-card/80 p-2.5 sm:p-3.5 shadow-xs backdrop-blur-xs"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-primary/10 text-primary">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-foreground leading-tight">
+                    <div className="min-w-0">
+                      <div className="text-[11px] sm:text-xs font-bold text-foreground leading-tight truncate xs:whitespace-normal">
                         {item.label}
                       </div>
-                      <div className="text-[11px] font-medium text-muted-foreground">
+                      <div className="text-[10px] sm:text-[11px] font-medium text-muted-foreground truncate">
                         {item.sub}
                       </div>
                     </div>
@@ -1566,22 +1566,22 @@ function Index() {
       </footer>
 
       {/* Floating WhatsApp & Call Buttons (High Conversion) */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2.5 sm:gap-3">
         <a
           href="https://wa.me/919811000000?text=Hi%20Career4S%2C%20I%20want%20to%20know%20about%20direct%20admission%20seats"
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"
-          className="flex h-13 w-13 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 transition hover:scale-110 hover:bg-emerald-600 active:scale-95"
+          className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 transition hover:scale-110 hover:bg-emerald-600 active:scale-95"
         >
-          <MessageCircle className="h-7 w-7" />
+          <MessageCircle className="h-5 w-5 sm:h-7 sm:w-7" />
         </a>
         <button
           onClick={() => openApplyModal("Floating Action")}
           aria-label="Call Counsellor"
-          className="flex h-13 w-13 items-center justify-center rounded-full bg-primary text-white shadow-xl shadow-primary/30 transition hover:scale-110 hover:brightness-110 active:scale-95 animate-bounce"
+          className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-primary text-white shadow-xl shadow-primary/30 transition hover:scale-110 hover:brightness-110 active:scale-95 animate-bounce"
         >
-          <PhoneCall className="h-6 w-6" />
+          <PhoneCall className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
       </div>
 
