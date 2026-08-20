@@ -15,6 +15,7 @@ import {
   Users,
   ChevronDown,
   X,
+  Menu,
   Stethoscope,
   Cpu,
   BadgeCheck,
@@ -23,6 +24,12 @@ import {
   Send,
   Bell,
   FileText,
+  Briefcase,
+  Star,
+  TrendingUp,
+  Quote,
+  HeartPulse,
+  Laptop,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -309,13 +316,835 @@ function Marquee({
   );
 }
 
+const noticeBoardData = [
+  {
+    id: 1,
+    university: "MCC (Medical Counselling Committee)",
+    shortCode: "MCC",
+    category: "medical",
+    type: "Counselling Schedule",
+    priority: "urgent",
+    title: "NEET UG 2026 Round-2 Seat Allotment Result — Reporting Deadline Extended",
+    summary:
+      "MCC has officially extended the Round-2 seat allotment reporting deadline to 31 Aug 2026. Candidates who were allotted seats must report to their allotted colleges along with original documents by the extended date.",
+    date: "Aug 19, 2026",
+    refNo: "MCC/NEET-UG/2026/Rd2/0817",
+    tags: ["NEET UG", "Round 2", "Reporting"],
+  },
+  {
+    id: 2,
+    university: "JOSAA / NIT+ System",
+    shortCode: "JOSAA",
+    category: "engineering",
+    type: "Seat Allotment",
+    priority: "urgent",
+    title: "JoSAA 2026 Round 5 Seat Allotment Result Published — Online Reporting Open",
+    summary:
+      "Joint Seat Allocation Authority (JoSAA) has published Round 5 allotment results for IITs, NITs, IIITs, and GFTIs. Candidates must respond by 22 Aug 2026 (5 PM). Seat acceptance and fee payment window is now live.",
+    date: "Aug 18, 2026",
+    refNo: "JOSAA/2026/R5/0818",
+    tags: ["JEE Advanced", "NIT", "IIT", "Round 5"],
+  },
+  {
+    id: 3,
+    university: "VIT University (VITEEE)",
+    shortCode: "VIT",
+    category: "engineering",
+    type: "Direct Admission",
+    priority: "new",
+    title: "VIT Vellore B.Tech 2026 Spot Round — CSE, AI-ML & Data Science Seats Available",
+    summary:
+      "VIT University announces a Spot Admission Round for B.Tech CSE, AI-ML, Data Science, and ECE branches across Vellore, Chennai, Amaravati, and Bhopal campuses. Applications open for 2026 batch with scholarships up to 100%.",
+    date: "Aug 17, 2026",
+    refNo: "VITEEE/SPOT/2026/0817",
+    tags: ["B.Tech", "Spot Round", "CSE", "AI-ML"],
+  },
+  {
+    id: 4,
+    university: "Manipal Academy of Higher Education",
+    shortCode: "MAHE",
+    category: "engineering",
+    type: "Fee Notification",
+    priority: "normal",
+    title: "MAHE Manipal 2026-27 Revised Fee Structure & Scholarship Notification Released",
+    summary:
+      "Manipal Academy of Higher Education has released the revised tuition fee structure for B.Tech, MBBS, BDS, and Allied Health courses for the 2026-27 academic year. MET rank-based scholarship slabs up to 50% have been updated.",
+    date: "Aug 15, 2026",
+    refNo: "MAHE/REG/FEE/2026/0815",
+    tags: ["Fee Structure", "Scholarships", "B.Tech", "MBBS"],
+  },
+  {
+    id: 5,
+    university: "NMC / Medical Counselling Committee",
+    shortCode: "NMC",
+    category: "medical",
+    type: "Circular",
+    priority: "urgent",
+    title: "NMC 2026: Deemed University MBBS Mop-Up Round Registration Open — Last Date 25 Aug",
+    summary:
+      "NMC and MCC have opened Mop-Up round registrations for unfilled MBBS seats in Deemed Universities. Candidates with valid NEET UG 2026 scores and fresh registrations can apply. Seat matrix for 56 deemed universities published.",
+    date: "Aug 14, 2026",
+    refNo: "NMC/MCC/DEEMED/MOPUP/2026",
+    tags: ["MBBS", "Mop-Up Round", "Deemed", "NMC"],
+  },
+  {
+    id: 6,
+    university: "JAC Delhi (Joint Admissions Counselling)",
+    shortCode: "JAC",
+    category: "engineering",
+    type: "Counselling Schedule",
+    priority: "new",
+    title: "JAC Delhi 2026 Round-3 Choice Filling Window Open — Delhi Colleges B.Tech",
+    summary:
+      "Joint Admissions Counselling (JAC) Delhi has opened Round 3 choice-filling for B.Tech admissions in DTU, NSUT, IGDTUW, IIIT Delhi, and other Delhi government engineering colleges. Candidates must lock choices by 23 Aug 2026.",
+    date: "Aug 13, 2026",
+    refNo: "JAC/DEL/2026/R3/0813",
+    tags: ["JAC Delhi", "B.Tech", "DTU", "NSUT", "Round 3"],
+  },
+  {
+    id: 7,
+    university: "Amrita Vishwa Vidyapeetham",
+    shortCode: "AMRITA",
+    category: "medical",
+    type: "Merit List",
+    priority: "normal",
+    title: "Amrita MBBS 2026 2nd Merit List Published — Management & NRI Quota Seats",
+    summary:
+      "Amrita School of Medicine (Kochi & Faridabad) has published the 2nd merit list for MBBS 2026 admissions under Management and NRI quota categories. Selected candidates must confirm seats by 28 Aug 2026 with original certificates.",
+    date: "Aug 12, 2026",
+    refNo: "AMRITA/MED/2026/ML2/0812",
+    tags: ["MBBS", "Merit List", "Management Quota", "NRI"],
+  },
+  {
+    id: 8,
+    university: "AKTU (Abdul Kalam Technical University)",
+    shortCode: "AKTU",
+    category: "engineering",
+    type: "Stray Vacancy",
+    priority: "urgent",
+    title: "AKTU UP 2026 Stray Vacancy Round — B.Tech CSE, ME, ECE Seats in Top Colleges",
+    summary:
+      "AKTU Uttar Pradesh announces Stray Vacancy Round for remaining B.Tech seats in affiliated colleges including KIET Ghaziabad, GL Bajaj, ABES Engineering, and Raj Kumar Goel Institute. Application last date: 26 Aug 2026.",
+    date: "Aug 11, 2026",
+    refNo: "AKTU/CTET/SVR/2026/0811",
+    tags: ["AKTU", "Stray Vacancy", "B.Tech", "UP"],
+  },
+  {
+    id: 9,
+    university: "SRM Institute of Science and Technology",
+    shortCode: "SRM",
+    category: "engineering",
+    type: "Direct Admission",
+    priority: "new",
+    title: "SRM University 2026 Direct Admission Open for B.Tech (All Campuses) — Limited Seats",
+    summary:
+      "SRM Institute of Science & Technology announces direct admission availability for B.Tech CSE, Cloud Computing, Cyber Security, and Data Science across Chennai, Delhi-NCR, Amaravati, and Sikkim campuses. NAAC A+ Grade. Seats strictly limited.",
+    date: "Aug 10, 2026",
+    refNo: "SRM/ADMN/DIRECT/2026/0810",
+    tags: ["Direct Admission", "B.Tech", "CSE", "SRM"],
+  },
+];
+
+type NoticePriority = "urgent" | "new" | "normal";
+type NoticeCategory = "all" | "medical" | "engineering" | "counselling";
+
+function NoticeBoardSection({ openApplyModal }: { openApplyModal: (name?: string) => void }) {
+  const [activeFilter, setActiveFilter] = useState<NoticeCategory>("all");
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const filters: { key: NoticeCategory; label: string }[] = [
+    { key: "all", label: "All Notices" },
+    { key: "medical", label: "Medical" },
+    { key: "engineering", label: "Engineering" },
+    { key: "counselling", label: "Counselling" },
+  ];
+
+  const filtered =
+    activeFilter === "all"
+      ? noticeBoardData
+      : activeFilter === "counselling"
+      ? noticeBoardData.filter((n) =>
+          ["Counselling Schedule", "Stray Vacancy"].includes(n.type)
+        )
+      : noticeBoardData.filter((n) => n.category === activeFilter);
+
+  const priorityConfig: Record<NoticePriority, { label: string; bg: string; text: string; dot: string; stripe: string }> = {
+    urgent: {
+      label: "URGENT",
+      bg: "bg-red-100 border-red-300/60",
+      text: "text-red-700",
+      dot: "bg-red-500",
+      stripe: "bg-gradient-to-r from-red-500 to-orange-400",
+    },
+    new: {
+      label: "NEW",
+      bg: "bg-emerald-100 border-emerald-300/60",
+      text: "text-emerald-700",
+      dot: "bg-emerald-500",
+      stripe: "bg-gradient-to-r from-emerald-500 to-teal-400",
+    },
+    normal: {
+      label: "NOTICE",
+      bg: "bg-sky-100 border-sky-300/60",
+      text: "text-sky-700",
+      dot: "bg-sky-400",
+      stripe: "bg-gradient-to-r from-primary to-blue-400",
+    },
+  };
+
+  return (
+    <section id="notice-board" className="relative overflow-hidden py-16 sm:py-24">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-50/40 via-background to-background" />
+      <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-amber-400/8 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-20 h-80 w-80 rounded-full bg-primary/8 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-4">
+        {/* Section Header */}
+        <div className="mx-auto max-w-3xl text-center mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
+            <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-ping" />
+            <Bell className="h-3.5 w-3.5 text-amber-600" />
+            Live Official Notices
+          </div>
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            University <span className="text-primary">Notice Board</span>
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+            Official seat matrix circulars, round-wise counselling schedules, merit cutoff notifications,
+            and stray vacancy alerts — updated daily for 2026-27 admissions.
+          </p>
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+          {filters.map((f) => {
+            const count =
+              f.key === "all"
+                ? noticeBoardData.length
+                : f.key === "counselling"
+                ? noticeBoardData.filter((n) => ["Counselling Schedule", "Stray Vacancy"].includes(n.type)).length
+                : noticeBoardData.filter((n) => n.category === f.key).length;
+            return (
+              <button
+                key={f.key}
+                onClick={() => setActiveFilter(f.key)}
+                className={`rounded-xl border px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all duration-200 flex items-center gap-1.5 ${
+                  activeFilter === f.key
+                    ? "border-primary bg-primary text-white shadow-md shadow-primary/20"
+                    : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
+                }`}
+              >
+                {f.label}
+                <span
+                  className={`inline-block rounded-full px-1.5 py-0.5 text-[10px] font-extrabold ${
+                    activeFilter === f.key ? "bg-white/20 text-white" : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Notice Cards Grid — always shows first 6 */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.slice(0, 6).map((notice) => {
+            const p = priorityConfig[notice.priority as NoticePriority];
+            const isExpanded = expandedId === notice.id;
+            return (
+              <div
+                key={notice.id}
+                className={`group relative flex flex-col rounded-2xl border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden ${
+                  notice.priority === "urgent"
+                    ? "border-red-200/80 hover:border-red-400/60"
+                    : notice.priority === "new"
+                    ? "border-emerald-200/80 hover:border-emerald-400/60"
+                    : "border-border/80 hover:border-primary/40"
+                }`}
+              >
+                <div className={`h-1 w-full ${p.stripe}`} />
+                <div className="flex flex-col gap-3 p-5 flex-1">
+                  <div className="flex items-start justify-between gap-2 flex-wrap">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider ${p.bg} ${p.text}`}>
+                        <span className={`h-1.5 w-1.5 rounded-full ${p.dot} ${notice.priority === "urgent" ? "animate-ping" : ""}`} />
+                        {p.label}
+                      </span>
+                      <span className="rounded-md border border-border/60 bg-muted/50 px-2 py-0.5 text-[10px] font-bold text-muted-foreground uppercase tracking-wide">
+                        {notice.type}
+                      </span>
+                    </div>
+                    <span className="flex items-center gap-1 text-[10px] font-medium text-muted-foreground whitespace-nowrap shrink-0">
+                      <Clock className="h-3 w-3" />
+                      {notice.date}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-[9px] font-black text-primary">
+                      {notice.shortCode.slice(0, 3)}
+                    </div>
+                    <span className="text-[11px] font-bold text-primary truncate">{notice.university}</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-3">
+                    {notice.title}
+                  </h3>
+                  {isExpanded && (
+                    <p className="text-xs text-muted-foreground leading-relaxed border-t border-border/60 pt-3 mt-1">
+                      {notice.summary}
+                    </p>
+                  )}
+                  <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/70 font-mono">
+                    <FileText className="h-3 w-3 shrink-0" />
+                    <span className="truncate">Ref: {notice.refNo}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {notice.tags.map((tag) => (
+                      <span key={tag} className="rounded-md bg-primary/8 px-2 py-0.5 text-[10px] font-bold text-primary/80">#{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 border-t border-border/60 bg-muted/20 px-5 py-3">
+                  <button
+                    onClick={() => setExpandedId(isExpanded ? null : notice.id)}
+                    className="flex-1 rounded-lg border border-border bg-card px-3 py-1.5 text-[11px] font-bold text-foreground transition hover:border-primary hover:text-primary"
+                  >
+                    {isExpanded ? "▲ Collapse" : "▼ Read Full Notice"}
+                  </button>
+                  <button
+                    onClick={() => openApplyModal(`${notice.university} — ${notice.type}`)}
+                    className="rounded-lg bg-primary px-3 py-1.5 text-[11px] font-bold text-white shadow-sm transition hover:brightness-110 whitespace-nowrap"
+                  >
+                    Get Help →
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* View All / Bottom CTA Row */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-amber-400/30 bg-gradient-to-r from-amber-50 via-card to-amber-50 p-5 sm:p-6 shadow-sm">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-600">
+              <Bell className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-foreground">Get Instant Notice Alerts on WhatsApp</p>
+              <p className="text-xs text-muted-foreground">Our counsellors share seat availability &amp; deadline alerts daily.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0 flex-wrap justify-center">
+            {filtered.length > 6 && (
+              <button
+                onClick={() => setShowAll(true)}
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-primary bg-white px-5 py-2.5 text-xs font-bold text-primary shadow-md transition hover:bg-primary hover:text-white"
+              >
+                <Bell className="h-4 w-4" />
+                View All {filtered.length} Notices
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            )}
+            <a
+              href="https://wa.me/919811000000?text=Hi%20Career4S%2C%20I%20want%20to%20receive%20admission%20notice%20alerts"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition hover:bg-emerald-700"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Subscribe on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── VIEW ALL NOTICES MODAL (scrollable) ── */}
+      {showAll && (
+        <div
+          className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-0 sm:p-4"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowAll(false); }}
+        >
+          <div className="relative w-full sm:max-w-4xl sm:rounded-3xl bg-card shadow-2xl border border-border flex flex-col" style={{ maxHeight: "92vh" }}>
+            {/* Sticky modal header */}
+            <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-border bg-card px-6 py-4 rounded-t-3xl shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500/15 text-amber-600">
+                  <Bell className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg font-extrabold text-foreground leading-none">All University Notices</h3>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">{filtered.length} official notices · 2026-27 Admissions</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowAll(false)}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition hover:bg-red-100 hover:text-red-600"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Filter tabs inside modal */}
+            <div className="shrink-0 flex flex-wrap gap-2 px-6 py-3 border-b border-border/60 bg-muted/20">
+              {(["all", "medical", "engineering", "counselling"] as NoticeCategory[]).map((f) => {
+                const labels: Record<NoticeCategory, string> = { all: "All", medical: "Medical", engineering: "Engineering", counselling: "Counselling" };
+                const count =
+                  f === "all" ? noticeBoardData.length
+                  : f === "counselling" ? noticeBoardData.filter((n) => ["Counselling Schedule", "Stray Vacancy"].includes(n.type)).length
+                  : noticeBoardData.filter((n) => n.category === f).length;
+                return (
+                  <button
+                    key={f}
+                    onClick={() => setActiveFilter(f)}
+                    className={`rounded-lg border px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide transition-all flex items-center gap-1 ${
+                      activeFilter === f
+                        ? "border-primary bg-primary text-white shadow"
+                        : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
+                    }`}
+                  >
+                    {labels[f]}
+                    <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-extrabold ${
+                      activeFilter === f ? "bg-white/20 text-white" : "bg-muted text-muted-foreground"
+                    }`}>{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Scrollable notice list */}
+            <div className="overflow-y-auto flex-1 px-6 py-5 space-y-3 scroll-smooth" style={{ scrollbarWidth: "thin", scrollbarColor: "hsl(var(--primary) / 0.4) transparent" }}>
+              {filtered.map((notice) => {
+                const p = priorityConfig[notice.priority as NoticePriority];
+                const isExpanded = expandedId === notice.id;
+                return (
+                  <div
+                    key={notice.id}
+                    className={`rounded-2xl border bg-card overflow-hidden transition-all duration-200 ${
+                      notice.priority === "urgent" ? "border-red-200/80" : notice.priority === "new" ? "border-emerald-200/80" : "border-border/80"
+                    }`}
+                  >
+                    <div className={`h-0.5 w-full ${p.stripe}`} />
+                    <div className="p-4">
+                      {/* top row */}
+                      <div className="flex items-start justify-between gap-2 flex-wrap mb-2">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className={`inline-flex items-center gap-1 rounded border px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider ${p.bg} ${p.text}`}>
+                            <span className={`h-1.5 w-1.5 rounded-full ${p.dot} ${notice.priority === "urgent" ? "animate-ping" : ""}`} />
+                            {p.label}
+                          </span>
+                          <span className="rounded border border-border/60 bg-muted/50 px-2 py-0.5 text-[10px] font-bold text-muted-foreground uppercase tracking-wide">{notice.type}</span>
+                        </div>
+                        <span className="flex items-center gap-1 text-[10px] text-muted-foreground shrink-0">
+                          <Clock className="h-3 w-3" />{notice.date}
+                        </span>
+                      </div>
+                      {/* university */}
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-primary/10 text-[8px] font-black text-primary">{notice.shortCode.slice(0,3)}</div>
+                        <span className="text-[11px] font-bold text-primary">{notice.university}</span>
+                      </div>
+                      {/* title */}
+                      <h4 className="text-sm font-bold text-foreground leading-snug mb-2">{notice.title}</h4>
+                      {/* expanded summary */}
+                      {isExpanded && (
+                        <p className="text-xs text-muted-foreground leading-relaxed border-t border-border/50 pt-2 mb-2">{notice.summary}</p>
+                      )}
+                      {/* ref + tags row */}
+                      <div className="flex items-center justify-between gap-2 flex-wrap">
+                        <div className="flex flex-wrap gap-1">
+                          {notice.tags.map((tag) => (
+                            <span key={tag} className="rounded bg-primary/8 px-1.5 py-0.5 text-[10px] font-bold text-primary/80">#{tag}</span>
+                          ))}
+                        </div>
+                        <span className="text-[10px] text-muted-foreground/60 font-mono truncate">Ref: {notice.refNo}</span>
+                      </div>
+                    </div>
+                    {/* footer */}
+                    <div className="flex items-center gap-2 border-t border-border/60 bg-muted/20 px-4 py-2.5">
+                      <button
+                        onClick={() => setExpandedId(isExpanded ? null : notice.id)}
+                        className="flex-1 rounded-lg border border-border bg-card px-3 py-1.5 text-[11px] font-bold text-foreground transition hover:border-primary hover:text-primary"
+                      >
+                        {isExpanded ? "▲ Collapse" : "▼ Read Full Notice"}
+                      </button>
+                      <button
+                        onClick={() => { setShowAll(false); openApplyModal(`${notice.university} — ${notice.type}`); }}
+                        className="rounded-lg bg-primary px-3 py-1.5 text-[11px] font-bold text-white shadow-sm transition hover:brightness-110 whitespace-nowrap"
+                      >
+                        Get Help →
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Modal footer */}
+            <div className="shrink-0 border-t border-border px-6 py-4 flex items-center justify-between gap-3 bg-muted/20 rounded-b-3xl">
+              <p className="text-xs text-muted-foreground">Showing all <strong>{filtered.length}</strong> notices · Updated daily</p>
+              <button
+                onClick={() => setShowAll(false)}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-white transition hover:brightness-110"
+              >
+                Close Board
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ==========================================
+// ALUMNI SUCCESS STORIES & NETWORK DATA
+// ==========================================
+interface AlumniProfile {
+  id: number;
+  name: string;
+  avatarGradient: string;
+  batch: string;
+  category: "medical" | "engineering";
+  college: string;
+  collegeLocation: string;
+  currentRole: string;
+  organization: string;
+  milestone: string;
+  quote: string;
+  tags: string[];
+}
+
+const alumniData: AlumniProfile[] = [
+  {
+    id: 1,
+    name: "Dr. Rohan Sharma",
+    avatarGradient: "from-blue-600 to-indigo-700",
+    batch: "Batch 2019-25",
+    category: "medical",
+    college: "Kasturba Medical College (KMC)",
+    collegeLocation: "Manipal, Karnataka",
+    currentRole: "Senior Resident Doctor (Cardiology)",
+    organization: "AIIMS New Delhi",
+    milestone: "NEET PG Top 500 Ranker",
+    quote:
+      "Career4S simplified the entire Deemed University counselling process when my family was confused with seat matrix allocations. Truly transparent guidance.",
+    tags: ["MBBS", "KMC Manipal", "AIIMS Delhi"],
+  },
+  {
+    id: 2,
+    name: "Ananya Sengupta",
+    avatarGradient: "from-purple-600 to-pink-600",
+    batch: "Batch 2020-24",
+    category: "engineering",
+    college: "Vellore Institute of Technology (VIT)",
+    collegeLocation: "Vellore, Tamil Nadu",
+    currentRole: "Software Development Engineer II",
+    organization: "Microsoft India",
+    milestone: "₹44 LPA Placement Package",
+    quote:
+      "Got direct Category-2 seat guidance for Computer Science Core at VIT with total fee clarity from day one. I'm now leading cloud architecture features at Microsoft.",
+    tags: ["B.Tech CSE", "VIT Vellore", "Microsoft"],
+  },
+  {
+    id: 3,
+    name: "Dr. Pooja Deshmukh",
+    avatarGradient: "from-emerald-600 to-teal-700",
+    batch: "Batch 2018-24",
+    category: "medical",
+    college: "M.S. Ramaiah Medical College",
+    collegeLocation: "Bangalore, Karnataka",
+    currentRole: "Consultant Pediatrician & Surgeon",
+    organization: "Apollo Hospitals, Bangalore",
+    milestone: "State University Gold Medalist",
+    quote:
+      "From round-by-round choice filling to institutional quota documentation, their counselling team was available even at midnight during mop-up rounds.",
+    tags: ["MBBS", "Ramaiah Medical", "Apollo Hospitals"],
+  },
+  {
+    id: 4,
+    name: "Siddharth Nair",
+    avatarGradient: "from-amber-600 to-orange-700",
+    batch: "Batch 2020-24",
+    category: "engineering",
+    college: "R.V. College of Engineering (RVCE)",
+    collegeLocation: "Bangalore, Karnataka",
+    currentRole: "Machine Learning & AI Engineer",
+    organization: "Amazon AWS",
+    milestone: "₹38.5 LPA Placement Package",
+    quote:
+      "Securing CSE at RV College Bangalore was my dream. Career4S made the COMEDK & institutional reservation pathway completely stress-free.",
+    tags: ["B.Tech AI/ML", "RVCE Bangalore", "Amazon"],
+  },
+  {
+    id: 5,
+    name: "Dr. Varun Mehra",
+    avatarGradient: "from-cyan-600 to-blue-700",
+    batch: "Batch 2019-25",
+    category: "medical",
+    college: "KLE JNMC",
+    collegeLocation: "Belagavi, Karnataka",
+    currentRole: "Resident Orthopedic Specialist",
+    organization: "Fortis Memorial Research Institute",
+    milestone: "USMLE Step 1 & 2 Cleared",
+    quote:
+      "Secured my MBBS seat without any unexpected hidden fees or donation surprises. Highly ethical and reliable team for medical aspirants.",
+    tags: ["MBBS", "KLE Belagavi", "Fortis"],
+  },
+  {
+    id: 6,
+    name: "Riya Mukherjee",
+    avatarGradient: "from-rose-600 to-red-700",
+    batch: "Batch 2020-24",
+    category: "engineering",
+    college: "Thapar Institute of Engg & Tech (TIET)",
+    collegeLocation: "Patiala, Punjab",
+    currentRole: "Silicon Design & Verification Engineer",
+    organization: "Qualcomm India",
+    milestone: "₹32 LPA Placement Package",
+    quote:
+      "Their cutoff analysis was 100% accurate. They suggested the right branch options based on my JEE percentile and guided me right through seat lock-in.",
+    tags: ["B.Tech ECE", "Thapar Patiala", "Qualcomm"],
+  },
+  {
+    id: 7,
+    name: "Dr. Aakash Verma",
+    avatarGradient: "from-violet-600 to-indigo-800",
+    batch: "Batch 2018-24",
+    category: "medical",
+    college: "Dr. D.Y. Patil Medical College",
+    collegeLocation: "Pune, Maharashtra",
+    currentRole: "Fellow in Laparoscopic Surgery",
+    organization: "Max Super Specialty Hospital",
+    milestone: "DNB General Surgery Aspirant",
+    quote:
+      "When other consultancies gave false promises, Career4S laid out the real numbers and secured my seat in Round 2 Deemed Counselling seamlessly.",
+    tags: ["MBBS", "DY Patil Pune", "Max Healthcare"],
+  },
+  {
+    id: 8,
+    name: "Harshvardhan Patel",
+    avatarGradient: "from-emerald-700 to-green-800",
+    batch: "Batch 2020-24",
+    category: "engineering",
+    college: "Manipal Institute of Technology (MIT)",
+    collegeLocation: "Manipal, Karnataka",
+    currentRole: "Quantitative Systems Analyst",
+    organization: "Goldman Sachs",
+    milestone: "₹36 LPA Placement Package",
+    quote:
+      "From campus comparison to installment fee schedules, the counselling was world-class. Thank you for setting my career on the right track!",
+    tags: ["B.Tech CSE", "MIT Manipal", "Goldman Sachs"],
+  },
+];
+
+function AlumniSection({ openApplyModal }: { openApplyModal: (name?: string) => void }) {
+  const [activeFilter, setActiveFilter] = useState<"all" | "medical" | "engineering">("all");
+
+  const filteredAlumni =
+    activeFilter === "all"
+      ? alumniData
+      : alumniData.filter((item) => item.category === activeFilter);
+
+  return (
+    <section id="alumni" className="relative overflow-hidden bg-muted/30 py-20 sm:py-28 border-y border-border/80">
+      {/* Background glow effects */}
+      <div className="pointer-events-none absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-1/4 h-96 w-96 rounded-full bg-emerald-500/5 blur-3xl" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        {/* Section Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+            <GraduationCap className="h-3.5 w-3.5" />
+            Alumni Success Network
+          </div>
+          <h2 className="mt-3 font-display text-3xl font-black tracking-tight text-foreground sm:text-5xl">
+            From Top Classrooms to <span className="text-primary">Global Careers</span>
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            Over <strong>5,000+ students</strong> guided by Career4S are now thriving as senior doctors, surgeons, super-specialists, and software leaders at premier healthcare systems &amp; Fortune 500 tech giants.
+          </p>
+
+          {/* Stream Filter Tabs */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 bg-card rounded-2xl max-w-md mx-auto border border-border shadow-xs">
+            <button
+              onClick={() => setActiveFilter("all")}
+              className={`flex-1 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
+                activeFilter === "all"
+                  ? "bg-primary text-white shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              All (4)
+            </button>
+            <button
+              onClick={() => setActiveFilter("medical")}
+              className={`flex-1 flex items-center justify-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
+                activeFilter === "medical"
+                  ? "bg-primary text-white shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <HeartPulse className="h-3.5 w-3.5" /> Medical (4)
+            </button>
+            <button
+              onClick={() => setActiveFilter("engineering")}
+              className={`flex-1 flex items-center justify-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
+                activeFilter === "engineering"
+                  ? "bg-primary text-white shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Laptop className="h-3.5 w-3.5" /> Tech (4)
+            </button>
+          </div>
+        </div>
+
+        {/* Alumni Cards Grid (Exactly 4 Cards) */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {filteredAlumni.slice(0, 4).map((alumnus) => (
+            <div
+              key={alumnus.id}
+              className="group relative flex flex-col justify-between rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl overflow-hidden"
+            >
+              {/* Top Accent Pill */}
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <span
+                  className={`inline-flex items-center gap-1 rounded-md px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider ${
+                    alumnus.category === "medical"
+                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                      : "bg-blue-50 text-blue-700 border border-blue-200"
+                  }`}
+                >
+                  {alumnus.category === "medical" ? (
+                    <Stethoscope className="h-3 w-3" />
+                  ) : (
+                    <Cpu className="h-3 w-3" />
+                  )}
+                  {alumnus.category === "medical" ? "Medical Doctor" : "Tech Leader"}
+                </span>
+
+                <span className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-[10px] font-bold text-muted-foreground">
+                  <BadgeCheck className="h-3 w-3 text-primary" /> Verified
+                </span>
+              </div>
+
+              {/* Profile Avatar & Name */}
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-tr ${alumnus.avatarGradient} text-sm font-black text-white shadow-md shadow-primary/20`}
+                >
+                  {alumnus.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .slice(0, 2)
+                    .join("")}
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-display text-base font-bold text-foreground truncate group-hover:text-primary transition-colors">
+                    {alumnus.name}
+                  </h3>
+                  <p className="text-xs font-semibold text-muted-foreground">{alumnus.batch}</p>
+                </div>
+              </div>
+
+              {/* Admitted College Info */}
+              <div className="rounded-xl border border-border/60 bg-muted/40 p-3 mb-3">
+                <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                  <GraduationCap className="h-3.5 w-3.5 text-primary" /> Admitted Via Career4S:
+                </div>
+                <p className="text-xs font-bold text-foreground mt-0.5 truncate">{alumnus.college}</p>
+                <div className="flex items-center gap-1 text-[11px] text-muted-foreground mt-0.5">
+                  <MapPin className="h-3 w-3 shrink-0" /> {alumnus.collegeLocation}
+                </div>
+              </div>
+
+              {/* Current Role & Organization */}
+              <div className="mb-3 space-y-1.5">
+                <div className="flex items-start gap-1.5 text-xs text-foreground font-semibold">
+                  <Briefcase className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                  <span>{alumnus.currentRole}</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs font-bold text-primary pl-5">
+                  @ {alumnus.organization}
+                </div>
+              </div>
+
+              {/* Career Milestone Badge */}
+              <div className="mb-4 inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 text-[11px] font-extrabold text-amber-700 dark:text-amber-400">
+                <TrendingUp className="h-3.5 w-3.5 shrink-0 text-amber-600" />
+                <span className="truncate">{alumnus.milestone}</span>
+              </div>
+
+              {/* Quote */}
+              <div className="relative mb-4 flex-1">
+                <Quote className="absolute -top-1 -left-1 h-4 w-4 text-primary/20" />
+                <p className="pl-4 text-xs italic text-muted-foreground leading-relaxed line-clamp-3">
+                  "{alumnus.quote}"
+                </p>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1 mb-4">
+                {alumnus.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action Button */}
+              <button
+                onClick={() => openApplyModal(`Alumni Connect — ${alumnus.name} (${alumnus.college})`)}
+                className="w-full rounded-xl border border-primary/30 bg-primary/5 py-2.5 text-xs font-bold text-primary transition-all duration-200 hover:bg-primary hover:text-white group-hover:border-primary"
+              >
+                Connect with Mentor →
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* 1-on-1 Alumni Mentorship Callout Banner */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl bg-gradient-to-r from-primary via-primary/95 to-indigo-900 p-6 sm:p-8 text-white shadow-xl shadow-primary/20">
+          <div className="space-y-2 text-center sm:text-left max-w-xl">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+              <Star className="h-3 w-3 fill-amber-300 text-amber-300" /> Free Mentorship Session
+            </div>
+            <h3 className="font-display text-xl sm:text-2xl font-black text-white">
+              Want to speak to a senior in your dream college?
+            </h3>
+            <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+              Get genuine, unbiased feedback on actual hostel life, clinical patient inflow, lab facilities, and campus placements before locking your seat.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 shrink-0 flex-wrap justify-center">
+            <button
+              onClick={() => openApplyModal("Alumni 1-on-1 Mentorship Request")}
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-xs sm:text-sm font-black text-primary shadow-lg transition hover:bg-white/95 active:scale-95"
+            >
+              Request Alumni Intro <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
+
   const [tickerIndex, setTickerIndex] = useState(0);
   const [selectedStream, setSelectedStream] = useState<"all" | "medical" | "engineering">("all");
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalCollege, setModalCollege] = useState<string>("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Quick form state
   const [formData, setFormData] = useState({
@@ -413,6 +1242,19 @@ function Index() {
               Engineering Admissions
             </a>
             <a
+              href="#notice-board"
+              className="flex items-center gap-1.5 text-sm font-semibold text-amber-600 transition hover:text-amber-700"
+            >
+              <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-ping" />
+              Notice Board
+            </a>
+            <a
+              href="#alumni"
+              className="text-sm font-semibold text-muted-foreground transition hover:text-primary"
+            >
+              Alumni Network
+            </a>
+            <a
               href="#contact"
               className="text-sm font-semibold text-muted-foreground transition hover:text-primary"
             >
@@ -432,12 +1274,80 @@ function Index() {
             </a>
             <button
               onClick={() => openApplyModal()}
-              className="rounded-xl bg-primary px-3.5 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition hover:shadow-lg hover:brightness-110 active:scale-95 whitespace-nowrap"
+              className="hidden sm:inline-flex rounded-xl bg-primary px-3.5 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition hover:shadow-lg hover:brightness-110 active:scale-95 whitespace-nowrap"
             >
               Apply For 2026 Seat
             </button>
+            {/* Hamburger — mobile only */}
+            <button
+              onClick={() => setMobileMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+              className="flex lg:hidden h-9 w-9 items-center justify-center rounded-xl border border-border bg-card text-foreground transition hover:border-primary hover:text-primary active:scale-95"
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
+
+        {/* ── Mobile Menu Drawer ── */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-border/60 bg-background/98 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
+            <nav className="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1">
+              {/* Nav links */}
+              {[
+                { href: "#medical", label: "🏥 Medical Admissions", amber: false },
+                { href: "#engineering", label: "⚙️ Engineering Admissions", amber: false },
+                { href: "#notice-board", label: "🔔 Notice Board", amber: true },
+                { href: "#alumni", label: "🎓 Alumni Network", amber: false },
+                { href: "#contact", label: "📞 Contact & Free Enquiry", amber: false },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                    link.amber
+                      ? "text-amber-600 bg-amber-50 hover:bg-amber-100"
+                      : "text-foreground hover:bg-muted hover:text-primary"
+                  }`}
+                >
+                  {link.amber && <span className="h-2 w-2 rounded-full bg-amber-500 animate-ping shrink-0" />}
+                  {link.label}
+                </a>
+              ))}
+
+              {/* Divider */}
+              <div className="my-2 border-t border-border/60" />
+
+              {/* Action buttons */}
+              <button
+                onClick={() => { setMobileMenuOpen(false); openApplyModal(); }}
+                className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-sm font-bold text-white shadow-md shadow-primary/20 transition hover:brightness-110 active:scale-98"
+              >
+                <GraduationCap className="h-4 w-4" />
+                Apply For 2026 Seat
+              </button>
+              <a
+                href="https://wa.me/919811000000?text=Hi%2C%20I%20need%20admission%20guidance%20for%202026%20batch"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl border border-emerald-600/30 bg-emerald-50 px-4 py-3.5 text-sm font-bold text-emerald-700 transition hover:bg-emerald-100"
+              >
+                <MessageCircle className="h-4 w-4 text-emerald-600" />
+                WhatsApp Help
+              </a>
+              <a
+                href="tel:+919811000000"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-3.5 text-sm font-bold text-foreground transition hover:border-primary hover:text-primary"
+              >
+                <PhoneCall className="h-4 w-4" />
+                +91 98110 00000
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Engineering Counselling Ticker Strip */}
@@ -871,40 +1781,11 @@ function Index() {
         </div>
       </section>
 
-      {/* ── LIVE NOTICE BOARD PLACEHOLDER SECTION ── */}
-      <section className="relative mx-auto max-w-7xl px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl text-center mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
-            <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-ping" />
-            <Bell className="h-3.5 w-3.5 text-amber-600" />
-            Live Notice Board
-          </div>
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Admissions <span className="text-primary">Notice Board</span>
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
-            Official seat matrix circulars, round-wise counselling schedules, and merit cutoff notifications for 2026-27.
-          </p>
-        </div>
+      {/* ── LIVE UNIVERSITY NOTICE BOARD ── */}
+      <NoticeBoardSection openApplyModal={openApplyModal} />
 
-        {/* Blank Cross Placeholder Box */}
-        <div className="relative mx-auto max-w-4xl h-72 sm:h-96 rounded-3xl border-2 border-dashed border-border/80 bg-muted/20 flex items-center justify-center overflow-hidden">
-          {/* Diagonal Cross Lines */}
-          <svg className="absolute inset-0 h-full w-full stroke-border/60" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="0" x2="100%" y2="100%" strokeWidth="1.5" strokeDasharray="6 6" />
-            <line x1="100%" y1="0" x2="0" y2="100%" strokeWidth="1.5" strokeDasharray="6 6" />
-          </svg>
-
-          {/* Center Indicator */}
-          <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 bg-card/90 backdrop-blur-xs rounded-2xl border border-border/80 shadow-md">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 mb-2">
-              <Clock className="h-6 w-6 animate-pulse" />
-            </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600">Notice Board Coming Soon</span>
-            <span className="text-[11px] text-muted-foreground mt-0.5">Section Currently Under Development</span>
-          </div>
-        </div>
-      </section>
+      {/* ── PROUD ALUMNI NETWORK & PLACEMENTS ── */}
+      <AlumniSection openApplyModal={openApplyModal} />
 
       {/* 
       ===============================================================
