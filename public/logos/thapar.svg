@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 240" width="100%" height="100%">
+  <!-- Torch Flame Icon on Right -->
+  <g transform="translate(440, 10)">
+    <circle cx="50" cy="20" r="14" fill="#E31E24" />
+    <path d="M 50,40 C 65,70 120,90 85,150 C 70,175 40,165 48,135 C 55,105 35,90 40,65 Z" fill="#000000" />
+    <path d="M 35,60 C 45,85 70,95 55,135 C 45,155 25,145 30,125 C 35,105 20,90 25,75 Z" fill="#ffffff" />
+  </g>
+  <!-- THAPAR UNIVERSITY text block -->
+  <text x="30" y="110" font-family="'Helvetica Neue', Arial, sans-serif" font-size="95" font-weight="900" letter-spacing="-1" fill="#000000">THAPAR</text>
+  <text x="30" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-size="70" font-weight="500" letter-spacing="2" fill="#000000">UNIVERSITY</text>
+</svg>

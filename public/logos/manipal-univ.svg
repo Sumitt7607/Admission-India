@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 240" width="100%" height="100%">
+  <!-- Manipal Emblem on the left -->
+  <g transform="translate(20, 20)">
+    <!-- Wreath of leaves around -->
+    <path d="M 85,150 C 40,140 10,100 20,50 C 18,70 30,120 75,145 Z" fill="#6B4423"/>
+    <path d="M 85,150 C 130,140 160,100 150,50 C 152,70 140,120 95,145 Z" fill="#6B4423"/>
+    <!-- Individual leaf details -->
+    <g fill="#7A4E2D">
+      <ellipse cx="25" cy="60" rx="6" ry="12" transform="rotate(-30 25 60)"/>
+      <ellipse cx="22" cy="85" rx="6" ry="12" transform="rotate(-15 22 85)"/>
+      <ellipse cx="28" cy="110" rx="6" ry="12" transform="rotate(10 28 110)"/>
+      <ellipse cx="45" cy="130" rx="6" ry="12" transform="rotate(35 45 130)"/>
+      <ellipse cx="145" cy="60" rx="6" ry="12" transform="rotate(30 145 60)"/>
+      <ellipse cx="148" cy="85" rx="6" ry="12" transform="rotate(15 148 85)"/>
+      <ellipse cx="142" cy="110" rx="6" ry="12" transform="rotate(-10 142 110)"/>
+      <ellipse cx="125" cy="130" rx="6" ry="12" transform="rotate(-35 125 130)"/>
+    </g>
+    <!-- Orange Person/Flame Symbol -->
+    <ellipse cx="85" cy="30" rx="14" ry="18" fill="#E65100" transform="rotate(15 85 30)"/>
+    <path d="M 50,75 C 50,65 120,65 120,75 C 120,85 105,85 105,115 C 105,120 95,120 95,115 L 95,88 L 75,88 L 75,115 C 75,120 65,120 65,115 L 65,85 C 50,85 50,75 50,75 Z" fill="#E65100"/>
+    <!-- Inspired By Life curve -->
+    <path id="curve" d="M 25,175 Q 85,205 145,175" fill="transparent"/>
+    <text font-family="'Times New Roman', Georgia, serif" font-size="12" font-weight="bold" fill="#6B4423" letter-spacing="3">
+      <textPath href="#curve" startOffset="50%" text-anchor="middle">
+        INSPIRED BY LIFE
+      </textPath>
+    </text>
+  </g>
+  <!-- MANIPAL UNIVERSITY Text -->
+  <text x="210" y="100" font-family="'Times New Roman', Georgia, serif" font-size="88" font-weight="bold" letter-spacing="4" fill="#222222">MANIPAL</text>
+  <text x="210" y="185" font-family="'Times New Roman', Georgia, serif" font-size="76" font-weight="bold" letter-spacing="5" fill="#222222">UNIVERSITY</text>
+</svg>

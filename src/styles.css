@@ -87,6 +87,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     border-color: var(--color-border);
   }
@@ -159,6 +163,22 @@
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
+}
+
+/* Engineering counselling ticker below navbar */
+@keyframes ticker-slide-ltr {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@utility counselling-ticker {
+  animation: ticker-slide-ltr 30s linear infinite;
+}
+
+@utility counselling-ticker-pause {
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes pulse-glow {

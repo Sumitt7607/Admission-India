@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 220" width="100%" height="100%">
+  <!-- SOA Crest -->
+  <g transform="translate(30, 15)">
+    <circle cx="95" cy="95" r="85" fill="#004D40" stroke="#00897B" stroke-width="4"/>
+    <circle cx="95" cy="95" r="75" fill="#ffffff" />
+    <text x="95" y="112" font-family="'Times New Roman', serif" font-size="42" font-weight="bold" fill="#004D40" text-anchor="middle">SOA</text>
+    <text x="95" y="145" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#00897B" text-anchor="middle">IMS &amp; SUM</text>
+  </g>
+  <!-- Text Block -->
+  <text x="215" y="70" font-family="'Times New Roman', Georgia, serif" font-size="40" font-weight="bold" fill="#004D40" letter-spacing="1">IMS &amp; SUM HOSPITAL</text>
+  <line x1="215" y1="88" x2="620" y2="88" stroke="#004D40" stroke-width="2.5" />
+  <text x="215" y="124" font-family="'Times New Roman', Georgia, serif" font-size="20" font-weight="bold" fill="#333333">Siksha 'O' Anusandhan University</text>
+  <text x="215" y="156" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00897B" letter-spacing="2">NIRF #16 MEDICAL • BHUBANESWAR</text>
+</svg>

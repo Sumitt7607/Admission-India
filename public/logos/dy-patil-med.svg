@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 220" width="100%" height="100%">
+  <!-- DY Patil Crest -->
+  <g transform="translate(30, 15)">
+    <circle cx="95" cy="95" r="85" fill="#8B0000" stroke="#FFD700" stroke-width="4"/>
+    <circle cx="95" cy="95" r="75" fill="#ffffff" />
+    <path d="M 60,65 L 130,65 L 130,125 C 130,150 95,160 95,160 C 95,160 60,150 60,125 Z" fill="#8B0000"/>
+    <text x="95" y="115" font-family="'Times New Roman', serif" font-size="36" font-weight="bold" fill="#FFD700" text-anchor="middle">DPU</text>
+  </g>
+  <!-- Text Block -->
+  <text x="215" y="72" font-family="'Times New Roman', Georgia, serif" font-size="44" font-weight="900" fill="#8B0000" letter-spacing="1">DR. D. Y. PATIL</text>
+  <line x1="215" y1="90" x2="620" y2="90" stroke="#8B0000" stroke-width="2.5" />
+  <text x="215" y="126" font-family="'Times New Roman', Georgia, serif" font-size="22" font-weight="bold" fill="#333333">Medical College, Hospital &amp; Research</text>
+  <text x="215" y="158" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B0000" letter-spacing="2">NAAC A++ GRADE • PUNE / MUMBAI</text>
+</svg>

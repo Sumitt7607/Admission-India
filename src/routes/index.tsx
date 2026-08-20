@@ -21,6 +21,8 @@ import {
   Percent,
   Check,
   Send,
+  Bell,
+  FileText,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -47,27 +49,27 @@ export const Route = createFileRoute("/")({
 
 const medicalColleges = [
   {
+    name: "Christian Medical College Vellore",
+    short: "CMC",
+    logo: "/logos/cmc-vellore.svg",
+    location: "Vellore, Tamil Nadu",
+    courses: "MBBS, Allied Sciences",
+    nirf: "NIRF #3 Medical",
+    package: "All India Counselling",
+  },
+  {
     name: "St. John's National Academy of Health Sciences",
     short: "STJOHNS",
-    logo: "/logos/st-johns.png",
+    logo: "/logos/st-johns.svg",
     location: "Bangalore, Karnataka",
     courses: "MBBS, MD, MS",
     nirf: "Top 15 Medical",
     package: "Merit & Institutional",
   },
   {
-    name: "Siksha 'O' Anusandhan (IMS & SUM Hospital)",
-    short: "SOA",
-    logo: "/logos/soa.png",
-    location: "Bhubaneswar, Odisha",
-    courses: "MBBS, BDS, PG Medical",
-    nirf: "NIRF #16 Medical",
-    package: "Deemed & Quota",
-  },
-  {
     name: "Ramaiah Medical College",
     short: "RAMAIAH",
-    logo: "/logos/ramaiah.png",
+    logo: "/logos/ramaiah-med.svg",
     location: "Bangalore, Karnataka",
     courses: "MBBS, MD, MS, Super Speciality",
     nirf: "Top 25 Medical",
@@ -76,43 +78,25 @@ const medicalColleges = [
   {
     name: "D Y Patil Deemed to be University",
     short: "DYPATIL",
-    logo: "/logos/dy-patil.png",
-    location: "Navi Mumbai, Maharashtra",
+    logo: "/logos/dy-patil-med.svg",
+    location: "Navi Mumbai / Pune",
     courses: "MBBS, BDS, Allied Health",
     nirf: "NAAC A++ Grade",
     package: "Deemed University Quota",
   },
   {
-    name: "MIMER Medical College",
-    short: "MIMER",
-    logo: "/logos/mimer.png",
-    location: "Pune, Maharashtra",
-    courses: "MBBS, MD, MS",
-    nirf: "MUHS Affiliated",
-    package: "Institutional Quota",
+    name: "Siksha 'O' Anusandhan (IMS & SUM Hospital)",
+    short: "SOA",
+    logo: "/logos/soa-ims.svg",
+    location: "Bhubaneswar, Odisha",
+    courses: "MBBS, BDS, PG Medical",
+    nirf: "NIRF #16 Medical",
+    package: "Deemed & Quota",
   },
   {
-    name: "Christian Medical College Vellore",
-    short: "CMC",
-    logo: "/logos/cmc.png",
-    location: "Vellore, Tamil Nadu",
-    courses: "MBBS, Allied Sciences",
-    nirf: "NIRF #3 Medical",
-    package: "All India Counselling",
-  },
-  {
-    name: "Kathmandu Medical College",
-    short: "KMC",
-    logo: "/logos/kmc-nepal.png",
-    location: "Kathmandu, Nepal",
-    courses: "MBBS (NMC/WHO Approved)",
-    nirf: "Affiliated to KU",
-    package: "Abroad Medical Direct",
-  },
-  {
-    name: "Amrita Vishwa Vidyapeetham",
+    name: "Amrita Vishwa Vidyapeetham (Medical)",
     short: "AMRITA",
-    logo: "/logos/amrita-medical.png",
+    logo: "/logos/amrita-univ.svg",
     location: "Kochi / Faridabad",
     courses: "MBBS, BDS, Nursing",
     nirf: "NIRF #6 Overall",
@@ -140,94 +124,58 @@ const medicalColleges = [
 
 const engineeringColleges = [
   {
-    name: "Maharaja Surajmal Institute of Technology",
-    short: "MSI",
-    logo: "/logos/msi.png",
-    location: "New Delhi (GGSIPU)",
-    courses: "B.Tech CSE, IT, ECE, AI-ML",
-    nirf: "Top IPU College",
-    package: "Management & Merit",
+    name: "Vellore Institute of Technology",
+    short: "VIT",
+    logo: "/logos/vit.svg",
+    location: "Vellore / Chennai / AP / Bhopal",
+    courses: "B.Tech CSE, AI-ML, ECE, Data Science",
+    nirf: "NIRF #11 Engineering",
+    package: "VITEEE & Management Quota",
   },
   {
-    name: "Bharati Vidyapeeth Deemed University",
-    short: "BVP",
-    logo: "/logos/bvp.png",
-    location: "Pune / New Delhi",
-    courses: "B.Tech, M.Tech, MCA",
+    name: "SRM University (Delhi-NCR, Sonepat)",
+    short: "SRM",
+    logo: "/logos/srm.svg",
+    location: "Delhi-NCR / Chennai",
+    courses: "B.Tech CSE, Cyber, Cloud, AI",
     nirf: "NAAC A+ Grade",
-    package: "Direct Institutional",
+    package: "Direct & Merit Seats",
   },
   {
-    name: "Guru Gobind Singh Indraprastha University",
-    short: "IPU",
-    logo: "/logos/ipu.png",
-    location: "Delhi NCR",
-    courses: "B.Tech, BBA, BCA, MBA",
-    nirf: "State Govt Top Rank",
-    package: "Delhi / Outside Delhi Quota",
-  },
-  {
-    name: "GL Bajaj Institute of Technology & Management",
-    short: "GLB",
-    logo: "/logos/gl-bajaj.png",
-    location: "Greater Noida, UP",
-    courses: "B.Tech CSE, AI, Data Science",
-    nirf: "AKTU Rank #1",
-    package: "Direct Admission 2026",
-  },
-  {
-    name: "JIMS Engineering Management Technical Campus",
-    short: "JIMS",
-    logo: "/logos/jims.png",
+    name: "Shiv Nadar University (Delhi NCR)",
+    short: "SNU",
+    logo: "/logos/shiv-nadar.svg",
     location: "Greater Noida, Delhi NCR",
-    courses: "B.Tech CSE, AI-ML, BBA",
-    nirf: "GGSIPU Affiliated",
-    package: "Direct Seat Booking",
-  },
-  {
-    name: "Manipal Academy of Higher Education (MIT)",
-    short: "MAHE",
-    logo: "/logos/manipal.png",
-    location: "Manipal / Bangalore / Jaipur",
-    courses: "B.Tech, M.Tech, Design",
+    courses: "B.Tech CSE, ECE, Chemical, Mechanical",
     nirf: "Institution of Eminence",
-    package: "MET & NRI Quota",
+    package: "SNUSAT & Direct Selection",
   },
   {
-    name: "Amrita School of Engineering",
+    name: "Amrita Vishwa Vidyapeetham",
     short: "AMRITA",
-    logo: "/logos/amrita.png",
+    logo: "/logos/amrita-univ.svg",
     location: "Coimbatore / Bangalore / Amritapuri",
-    courses: "B.Tech CSE, Robotics, Cyber",
+    courses: "B.Tech CSE, AI, Robotics, Cyber",
     nirf: "NIRF #7 Engineering",
-    package: "AEEE & Management",
+    package: "AEEE & Management Quota",
   },
   {
-    name: "Chandigarh University",
-    short: "CU",
-    logo: "/logos/chandigarh.png",
-    location: "Mohali, Punjab",
-    courses: "B.Tech CSE (IBM/TCS), AI",
-    nirf: "QS Asia Top Ranked",
-    package: "Direct & Scholarship",
+    name: "Thapar Institute of Engineering & Technology",
+    short: "THAPAR",
+    logo: "/logos/thapar.svg",
+    location: "Patiala, Punjab / Dera Bassi",
+    courses: "B.Tech COE, CSE, ECE, AI-DS",
+    nirf: "NIRF Top 20 Engineering",
+    package: "JEE Main & Direct Quota",
   },
   {
-    name: "Lovely Professional University",
-    short: "LPU",
-    logo: "/logos/lpu.png",
-    location: "Jalandhar, Punjab",
-    courses: "B.Tech CSE, Aerospace, Biotech",
-    nirf: "Top 25 in India",
-    package: "Direct Allotment",
-  },
-  {
-    name: "Maharaja Agrasen Institute of Technology",
-    short: "MAIT",
-    logo: "/logos/mait.png",
-    location: "Rohini, New Delhi",
-    courses: "B.Tech CSE, IT, EEE, AI-DS",
-    nirf: "Top 3 IPU College",
-    package: "Direct & Management Quota",
+    name: "Manipal University (MAHE)",
+    short: "MANIPAL",
+    logo: "/logos/manipal-univ.svg",
+    location: "Manipal / Bangalore / Jaipur",
+    courses: "B.Tech CSE, AI, Data Science, Cyber",
+    nirf: "Institution of Eminence",
+    package: "MET & Direct Quota",
   },
 ];
 
@@ -299,16 +247,16 @@ function LogoCard({
   short: string;
 }) {
   return (
-    <div className="group mx-4 flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl border border-border/60 bg-transparent px-5 py-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:bg-muted/30 hover:shadow-lg">
+    <div className="group mx-3.5 flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl border border-border/80 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl">
       {logo ? (
         <img
           src={logo}
           alt={name}
-          className="h-24 max-h-24 w-auto max-w-[230px] object-contain transition-transform duration-300 group-hover:scale-110"
+          className="h-20 max-h-20 w-auto max-w-[210px] object-contain transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
       ) : (
-        <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary text-xl font-bold tracking-tight text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-lg font-bold tracking-tight text-white shadow-md transition-transform duration-300 group-hover:scale-105">
           {short.slice(0, 4)}
         </div>
       )}
@@ -327,7 +275,7 @@ function Marquee({
   label: string;
   subtitle: string;
 }) {
-  const doubled = [...items, ...items];
+  const doubled = items.length < 8 ? [...items, ...items, ...items, ...items] : [...items, ...items];
   return (
     <section className="relative overflow-hidden border-y border-border bg-card/60 py-12">
       <div className="mx-auto mb-7 max-w-7xl px-4">
@@ -406,8 +354,8 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
-      {/* Top Urgent Alert Bar */}
-      <div className="bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-xs">
+      {/* Top Urgent Alert Bar (Hidden on Mobile) */}
+      <div className="hidden sm:block bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-xs">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-1 sm:flex-row sm:gap-4">
           <div className="flex items-center gap-2 text-center sm:text-left">
             <span className="flex h-2 w-2 rounded-full bg-white animate-ping" />
@@ -492,6 +440,57 @@ function Index() {
         </div>
       </header>
 
+      {/* Engineering Counselling Ticker Strip */}
+      {(() => {
+        const counsellingItems = [
+          { name: "JAC Delhi", full: "Joint Admission Counselling Delhi" },
+          { name: "JOSAA", full: "Joint Seat Allocation Authority" },
+          { name: "IPU", full: "Indraprastha University" },
+          { name: "AKTU", full: "Abdul Kalam Technical University" },
+          { name: "HSTES", full: "Haryana State Technical Education Society" },
+          { name: "COMEDK", full: "Engineering Colleges of Karnataka" },
+          { name: "MHT-CET", full: "Maharashtra Common Entrance Test" },
+          { name: "REAP", full: "Rajasthan Engineering Admission Process" },
+          { name: "CUET", full: "Common University Entrance Test" },
+          { name: "DSEU", full: "Delhi Skill & Entrepreneurship University" },
+        ];
+        const doubled = [...counsellingItems, ...counsellingItems];
+        return (
+          <div className="flex items-center border-b border-border/60 bg-gradient-to-r from-primary/5 via-background to-primary/5 py-2">
+            {/* Static label — always visible, never overlaps */}
+            <div className="shrink-0 pl-3 pr-2">
+              <span className="flex items-center gap-1 rounded-full border border-primary/30 bg-primary px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow whitespace-nowrap">
+                <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
+                <span className="hidden xs:inline">Engineering</span> Counselling
+              </span>
+            </div>
+
+            {/* Scrolling track inside its own overflow-hidden box */}
+            <div className="relative min-w-0 flex-1 overflow-hidden">
+              {/* Right fade mask */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" />
+
+              <div className="flex w-max counselling-ticker counselling-ticker-pause">
+                {doubled.map((item, i) => (
+                  <span
+                    key={`${item.name}-${i}`}
+                    className="group mx-4 flex shrink-0 items-center gap-1.5"
+                  >
+                    <span className="rounded-md border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[11px] sm:text-xs font-extrabold uppercase tracking-wide text-primary transition group-hover:bg-primary group-hover:text-primary-foreground whitespace-nowrap">
+                      {item.name}
+                    </span>
+                    <span className="hidden md:inline text-xs font-medium text-muted-foreground whitespace-nowrap">
+                      {item.full}
+                    </span>
+                    <span className="text-primary/30 text-sm select-none">◆</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-8 pb-20 sm:pt-14 sm:pb-28">
         <div className="hero-grid-bg absolute inset-0 opacity-40" />
@@ -510,12 +509,65 @@ function Index() {
             </div>
           </div>
 
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary mb-6">
-              <Sparkles className="h-3.5 w-3.5" />
-              Guaranteed Direct &amp; Merit Seat Guidance 2026
-            </div>
+          {/* Medical Counselling RTL Ticker */}
+          {(() => {
+            const medCounselling = [
+              { code: "MCC", state: "Central — NEET AIQ" },
+              { code: "AACCC", state: "Andhra Pradesh" },
+              { code: "BCECE", state: "Bihar" },
+              { code: "CGDME", state: "Chhattisgarh" },
+              { code: "GJUGMC", state: "Gujarat" },
+              { code: "HPMET", state: "Himachal Pradesh" },
+              { code: "JKBOPEE", state: "J & K" },
+              { code: "JAC", state: "Jharkhand" },
+              { code: "KEA", state: "Karnataka" },
+              { code: "CETA", state: "Kerala" },
+              { code: "MPPMC", state: "Madhya Pradesh" },
+              { code: "MH CET CELL", state: "Maharashtra" },
+              { code: "OJEE", state: "Odisha" },
+              { code: "PBMCC", state: "Punjab" },
+              { code: "RAJUVAS", state: "Rajasthan" },
+              { code: "TNMC", state: "Tamil Nadu" },
+              { code: "KNRUHS", state: "Telangana" },
+              { code: "UPGMEE", state: "Uttar Pradesh" },
+              { code: "UKPMT", state: "Uttarakhand" },
+              { code: "WBMCC", state: "West Bengal" },
+              { code: "DMET", state: "Delhi" },
+              { code: "ASSAM CEE", state: "Assam" },
+            ];
+            const doubled = [...medCounselling, ...medCounselling];
+            return (
+              <div className="mx-auto mb-6 flex items-center overflow-hidden rounded-xl border border-rose-200/60 bg-gradient-to-r from-rose-50/80 via-white to-rose-50/80 py-1.5 max-w-2xl shadow-sm">
+                {/* Label */}
+                <div className="shrink-0 pl-3 pr-2">
+                  <span className="flex items-center gap-1 rounded-lg border border-rose-400/40 bg-rose-600 px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white shadow whitespace-nowrap">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
+                    Medical
+                  </span>
+                </div>
+                {/* RTL scrolling track */}
+                <div className="relative min-w-0 flex-1 overflow-hidden">
+                  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-rose-50 to-transparent" />
+                  <div className="flex w-max" style={{ animation: "ticker-slide-ltr 35s linear infinite reverse" }}>
+                    {doubled.map((item, i) => (
+                      <span key={`${item.code}-${i}`} className="mx-3 flex shrink-0 items-center gap-1.5">
+                        <span className="rounded border border-rose-300/50 bg-rose-100 px-2 py-0.5 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wide text-rose-700 whitespace-nowrap">
+                          {item.code}
+                        </span>
+                        <span className="text-[10px] sm:text-[11px] font-medium text-rose-500/80 whitespace-nowrap">
+                          {item.state}
+                        </span>
+                        <span className="text-rose-300 text-xs select-none">•</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
 
+
+          <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl">
               Get Into India’s{" "}
               <span className="text-primary underline decoration-primary/30 decoration-wavy decoration-2">
@@ -599,6 +651,260 @@ function Index() {
           subtitle="Top NIRF Ranked Universities & Autonomous Institutes"
         />
       </div>
+
+      {/* ── TOP RECRUITERS SECTION ── */}
+      <section className="relative overflow-hidden border-y border-border/60 bg-gradient-to-br from-background via-primary/[0.03] to-background py-16 sm:py-20">
+        {/* Background decoration */}
+        <div className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 -bottom-40 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4">
+          {/* Heading */}
+          <div className="mb-12 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+              <Sparkles className="h-3.5 w-3.5" />
+              Placement Network
+            </div>
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              Top <span className="text-primary">Recruiters</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground">
+              Graduates from partner colleges and universities are placed in Fortune 500 companies, top MNCs, and leading global organizations.
+            </p>
+          </div>
+
+          {/* Recruiter Static Graphic Image */}
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border/80 bg-white p-4 sm:p-8 shadow-xl shadow-primary/5 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl">
+            <img
+              src="/top-recruiters.png"
+              alt="Top Multinational Recruiters - Amazon, Google, Microsoft, Toyota, Samsung, Honda, Volkswagen, Shell, Walmart, Exxon, Allianz, Chevron, BP, Verizon, Mercedes-Benz, AT&T"
+              className="h-auto w-full rounded-2xl object-contain"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Stats row */}
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {[
+              { value: "₹28 LPA", label: "Highest Package", sub: "Engineering 2024-25" },
+              { value: "500+", label: "Recruiting Companies", sub: "Across All Sectors" },
+              { value: "94%", label: "Placement Rate", sub: "Top Partner Institutes" },
+              { value: "₹7.5 LPA", label: "Average Package", sub: "B.Tech Graduates" },
+            ].map((s, i) => (
+              <div key={i} className="rounded-2xl border border-border/70 bg-card p-5 text-center shadow-xs hover:shadow-md hover:border-primary/30 transition-all duration-300">
+                <div className="font-display text-2xl sm:text-3xl font-black text-primary">{s.value}</div>
+                <div className="mt-1 text-sm font-bold text-foreground">{s.label}</div>
+                <div className="text-xs text-muted-foreground">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── GET COUNSELLING CARDS (ENGINEERING & MEDICAL) ── */}
+      <section className="relative mx-auto max-w-7xl px-4 py-16 sm:py-24">
+        {/* Background glow accents */}
+        <div className="pointer-events-none absolute -left-32 top-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-blue-500/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-rose-500/5 blur-3xl" />
+
+        <div className="mx-auto max-w-3xl text-center mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+            <Sparkles className="h-3.5 w-3.5" />
+            Admissions 2026-27 Support
+          </div>
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            Choose Your <span className="text-primary">Counselling Stream</span>
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+            Get 1-on-1 personalized advisory, choice-filling roadmap, and direct seat booking from India's senior admission experts.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Engineering Counselling Card */}
+          <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-blue-500/20 bg-gradient-to-br from-card via-blue-50/20 to-card p-6 sm:p-8 shadow-lg shadow-blue-500/5 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10">
+            {/* Top accent bar */}
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400" />
+            
+            <div>
+              {/* Header */}
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-600 shadow-inner group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  <Cpu className="h-7 w-7" />
+                </div>
+                <span className="rounded-full border border-blue-500/30 bg-blue-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-blue-700">
+                  B.Tech / B.E. / M.Tech
+                </span>
+              </div>
+
+              {/* Title & Description */}
+              <h3 className="mt-6 font-display text-2xl sm:text-3xl font-black text-foreground group-hover:text-blue-600 transition-colors">
+                Get Engineering Counselling
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Strategic rank-based choice filling, JEE cut-off prediction, and verified institutional quota admissions in premier NIRF-ranked engineering universities.
+              </p>
+
+              {/* Badges / Streams Covered */}
+              <div className="mt-5 flex flex-wrap gap-1.5">
+                {["JOSAA / CSAB", "JAC Delhi", "COMEDK", "IPU / AKTU", "MHT-CET", "Direct Quota"].map((badge, idx) => (
+                  <span
+                    key={idx}
+                    className="rounded-lg border border-blue-200/60 bg-white px-2.5 py-1 text-[11px] font-bold text-blue-900 shadow-xs"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              {/* Feature Points */}
+              <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-foreground/80">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-600" />
+                  <span><strong>Top Branches:</strong> CSE, AI & ML, Data Science, ECE, IT</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-600" />
+                  <span><strong>1-on-1 Strategy:</strong> Mock round analysis & optimal preference order</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-600" />
+                  <span><strong>Verified Quota:</strong> 100% genuine management & NRI seat bookings</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-6 border-t border-border/60">
+              <a
+                href="#engineering"
+                className="flex-1 rounded-xl bg-blue-600 px-6 py-3.5 text-center font-display text-sm font-bold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 active:scale-98 flex items-center justify-center gap-2"
+              >
+                <span>View Colleges</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="https://wa.me/919811000000?text=Hi%2C%20I%20need%20Engineering%20Counselling%20guidance"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border border-blue-300/60 bg-white px-4 py-3.5 text-center font-display text-sm font-bold text-blue-700 transition hover:bg-blue-50 flex items-center justify-center gap-2 shadow-xs"
+              >
+                <MessageCircle className="h-4 w-4 text-emerald-600" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Medical Counselling Card */}
+          <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-rose-500/20 bg-gradient-to-br from-card via-rose-50/20 to-card p-6 sm:p-8 shadow-lg shadow-rose-500/5 transition-all duration-300 hover:-translate-y-1.5 hover:border-rose-500/50 hover:shadow-2xl hover:shadow-rose-500/10">
+            {/* Top accent bar */}
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-rose-600 via-pink-500 to-amber-500" />
+            
+            <div>
+              {/* Header */}
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-600/10 text-rose-600 shadow-inner group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300">
+                  <Stethoscope className="h-7 w-7" />
+                </div>
+                <span className="rounded-full border border-rose-500/30 bg-rose-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-rose-700">
+                  MBBS / BDS / MD / MS
+                </span>
+              </div>
+
+              {/* Title & Description */}
+              <h3 className="mt-6 font-display text-2xl sm:text-3xl font-black text-foreground group-hover:text-rose-600 transition-colors">
+                Get Medical Counselling
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                End-to-end NEET UG/PG counselling assistance across MCC All India Quota, State DMEs, Deemed Universities, and NMC-approved overseas colleges.
+              </p>
+
+              {/* Badges / Streams Covered */}
+              <div className="mt-5 flex flex-wrap gap-1.5">
+                {["NEET UG / PG", "MCC AIQ", "State DMEs", "Deemed Quota", "Management/NRI", "Abroad MBBS"].map((badge, idx) => (
+                  <span
+                    key={idx}
+                    className="rounded-lg border border-rose-200/60 bg-white px-2.5 py-1 text-[11px] font-bold text-rose-900 shadow-xs"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              {/* Feature Points */}
+              <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-foreground/80">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-rose-600" />
+                  <span><strong>Courses Covered:</strong> MBBS, BDS, BAMS, BHMS, MD/MS</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-rose-600" />
+                  <span><strong>Transparent Guidance:</strong> Budget estimation & quota fee breakdown</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-rose-600" />
+                  <span><strong>Round-wise Tracking:</strong> Mop-up & stray vacancy round seat alerts</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-6 border-t border-border/60">
+              <a
+                href="#medical"
+                className="flex-1 rounded-xl bg-primary px-6 py-3.5 text-center font-display text-sm font-bold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30 active:scale-98 flex items-center justify-center gap-2"
+              >
+                <span>View Colleges</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="https://wa.me/919811000000?text=Hi%2C%20I%20need%20Medical%20Counselling%20guidance"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border border-rose-300/60 bg-white px-4 py-3.5 text-center font-display text-sm font-bold text-rose-700 transition hover:bg-rose-50 flex items-center justify-center gap-2 shadow-xs"
+              >
+                <MessageCircle className="h-4 w-4 text-emerald-600" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── LIVE NOTICE BOARD PLACEHOLDER SECTION ── */}
+      <section className="relative mx-auto max-w-7xl px-4 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl text-center mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-600 mb-4">
+            <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-ping" />
+            <Bell className="h-3.5 w-3.5 text-amber-600" />
+            Live Notice Board
+          </div>
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            Admissions <span className="text-primary">Notice Board</span>
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+            Official seat matrix circulars, round-wise counselling schedules, and merit cutoff notifications for 2026-27.
+          </p>
+        </div>
+
+        {/* Blank Cross Placeholder Box */}
+        <div className="relative mx-auto max-w-4xl h-72 sm:h-96 rounded-3xl border-2 border-dashed border-border/80 bg-muted/20 flex items-center justify-center overflow-hidden">
+          {/* Diagonal Cross Lines */}
+          <svg className="absolute inset-0 h-full w-full stroke-border/60" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="0" x2="100%" y2="100%" strokeWidth="1.5" strokeDasharray="6 6" />
+            <line x1="100%" y1="0" x2="0" y2="100%" strokeWidth="1.5" strokeDasharray="6 6" />
+          </svg>
+
+          {/* Center Indicator */}
+          <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 bg-card/90 backdrop-blur-xs rounded-2xl border border-border/80 shadow-md">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 mb-2">
+              <Clock className="h-6 w-6 animate-pulse" />
+            </div>
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-600">Notice Board Coming Soon</span>
+            <span className="text-[11px] text-muted-foreground mt-0.5">Section Currently Under Development</span>
+          </div>
+        </div>
+      </section>
 
       {/* 
       ===============================================================
@@ -1107,60 +1413,153 @@ function Index() {
       </section>
       */}
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-card">
-        <div className="mx-auto max-w-7xl px-4 py-12">
-          <div className="grid gap-8 md:grid-cols-4 pb-8 border-b border-border">
-            <div className="md:col-span-2 space-y-4">
-              <Link to="/" className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-display text-sm font-bold text-primary-foreground shadow">
-                  4S
-                </div>
-                <span className="font-display text-xl font-black tracking-tight text-foreground">
-                  Career<span className="text-primary">4S</span> India
-                </span>
-              </Link>
-              <p className="text-xs text-muted-foreground max-w-sm leading-relaxed">
-                India's premier education counselling consultancy helping students secure merit and management quota seats across top NMC, AICTE &amp; UGC approved universities.
+      {/* ── HIGH CONVERTING PREMIUM DARK FOOTER ── */}
+      <footer className="border-t border-white/10 bg-[#0c0c12] text-slate-200">
+        {/* Top CTA Banner */}
+        <div className="border-b border-white/10 bg-gradient-to-r from-primary/25 via-[#151522] to-primary/25 py-10 px-4">
+          <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-rose-300 mb-2">
+                <Sparkles className="h-3 w-3" />
+                Admissions 2026-27 Active Desk
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-black text-white">
+                Ready to Secure Your College Seat?
+              </h3>
+              <p className="mt-1 text-sm text-slate-300 max-w-xl">
+                Get 1-on-1 personalized counselling with India's senior education advisors. Zero hidden charges, 100% transparent process.
               </p>
             </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+              <button
+                onClick={() => openApplyModal("Footer Advisory CTA")}
+                className="rounded-xl bg-primary px-6 py-3.5 font-display text-sm font-bold text-white shadow-lg shadow-primary/30 transition hover:brightness-110 active:scale-98 flex items-center gap-2"
+              >
+                <span>Book Free Consultation</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <a
+                href="tel:+919811000000"
+                className="rounded-xl border border-white/20 bg-white/5 px-5 py-3.5 font-display text-sm font-bold text-white transition hover:bg-white/10 flex items-center gap-2 shadow-xs"
+              >
+                <PhoneCall className="h-4 w-4 text-rose-400" />
+                <span>+91 98110 00000</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
+        {/* Main Footer Links */}
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-white/10">
+            {/* Brand column */}
+            <div className="lg:col-span-2 space-y-4">
+              <Link to="/" className="flex items-center gap-3 group">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-md shadow-primary/25 transition group-hover:scale-105">
+                  <GraduationCap className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display text-2xl font-black tracking-tight text-white leading-none">
+                    Career<span className="text-primary">4S</span>
+                  </span>
+                  <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mt-0.5">
+                    India's Premier Educational Advisory
+                  </span>
+                </div>
+              </Link>
+              <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
+                Empowering students and parents across India since 2010. Transparent, merit-focused, and institutional quota admission counselling for top Engineering, Medical, and Deemed universities.
+              </p>
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-slate-200">
+                  <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+                  100% Verified Seats
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-slate-200">
+                  <Building2 className="h-3.5 w-3.5 text-primary" />
+                  NMC &amp; AICTE Institutes
+                </span>
+              </div>
+            </div>
+
+            {/* Engineering Streams */}
             <div>
-              <h4 className="font-display text-sm font-bold text-foreground mb-3">
-                Quick Streams
+              <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+                <Cpu className="h-4 w-4 text-blue-400" />
+                <span>Engineering</span>
               </h4>
-              <ul className="space-y-2 text-xs text-muted-foreground">
-                <li><a href="#medical" className="hover:text-primary transition">MBBS Admissions 2026</a></li>
-                <li><a href="#medical" className="hover:text-primary transition">BDS &amp; Allied Medical</a></li>
-                <li><a href="#engineering" className="hover:text-primary transition">B.Tech CSE / AI-ML</a></li>
-                <li><a href="#medical" className="hover:text-primary transition">MBBS Abroad (Nepal)</a></li>
+              <ul className="space-y-2.5 text-xs text-slate-400">
+                <li><a href="#engineering" className="hover:text-white transition hover:underline">B.Tech CSE &amp; AI-ML</a></li>
+                <li><a href="#engineering" className="hover:text-white transition hover:underline">VIT &amp; SRM Admissions</a></li>
+                <li><a href="#engineering" className="hover:text-white transition hover:underline">Thapar &amp; Shiv Nadar</a></li>
+                <li><a href="#engineering" className="hover:text-white transition hover:underline">Manipal (MAHE) Direct</a></li>
+                <li><a href="#engineering" className="hover:text-white transition hover:underline">COMEDK &amp; MHT-CET Seats</a></li>
+                <li><a href="#engineering" className="hover:text-white transition hover:underline">JAC Delhi / IPU / AKTU</a></li>
               </ul>
             </div>
 
+            {/* Medical Streams */}
             <div>
-              <h4 className="font-display text-sm font-bold text-foreground mb-3">
+              <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+                <Stethoscope className="h-4 w-4 text-rose-400" />
+                <span>Medical</span>
+              </h4>
+              <ul className="space-y-2.5 text-xs text-slate-400">
+                <li><a href="#medical" className="hover:text-white transition hover:underline">MBBS Direct Admissions</a></li>
+                <li><a href="#medical" className="hover:text-white transition hover:underline">NEET AIQ (MCC) Guidance</a></li>
+                <li><a href="#medical" className="hover:text-white transition hover:underline">Deemed University Quota</a></li>
+                <li><a href="#medical" className="hover:text-white transition hover:underline">CMC Vellore &amp; St. John's</a></li>
+                <li><a href="#medical" className="hover:text-white transition hover:underline">Ramaiah &amp; D.Y. Patil</a></li>
+                <li><a href="#medical" className="hover:text-white transition hover:underline">NMC Approved MBBS Abroad</a></li>
+              </ul>
+            </div>
+
+            {/* Contact & Branch Desks */}
+            <div>
+              <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white mb-4">
                 Helpline &amp; Support
               </h4>
-              <ul className="space-y-2 text-xs text-muted-foreground">
-                <li>📞 +91 98110 00000</li>
-                <li>✉️ contact@career4s.com</li>
-                <li>⏱️ Mon - Sun: 9:00 AM - 9:00 PM</li>
-                <li>
+              <ul className="space-y-3 text-xs text-slate-400">
+                <li className="flex items-start gap-2">
+                  <PhoneCall className="h-3.5 w-3.5 text-rose-400 shrink-0 mt-0.5" />
+                  <a href="tel:+919811000000" className="hover:text-white font-bold text-slate-200 transition">
+                    +91 98110 00000
+                  </a>
+                </li>
+                <li className="flex items-start gap-2">
+                  <MessageCircle className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                  <a href="https://wa.me/919811000000" target="_blank" rel="noreferrer" className="hover:text-white transition">
+                    WhatsApp: Instant Chat
+                  </a>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Clock className="h-3.5 w-3.5 text-rose-400 shrink-0 mt-0.5" />
+                  <span>Mon - Sun: 9:00 AM - 9:00 PM</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <MapPin className="h-3.5 w-3.5 text-rose-400 shrink-0 mt-0.5" />
+                  <span>Delhi NCR • Bangalore • Pune • Mumbai</span>
+                </li>
+                <li className="pt-1">
                   <button
                     onClick={() => openApplyModal("Footer Direct Callback")}
-                    className="mt-2 text-xs font-bold text-primary hover:underline"
+                    className="w-full rounded-lg bg-primary/20 border border-primary/40 px-3 py-2 text-xs font-bold text-rose-200 hover:bg-primary hover:text-white transition text-center"
                   >
-                    Request Instant Callback →
+                    Request Callback →
                   </button>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-            <p>© 2026 Career4S India. All Rights Reserved.</p>
-            <p className="text-[11px]">
-              Disclaimer: Career4S India provides professional education counselling and guidance. All allocations are subject to university guidelines.
+          {/* Bottom Copyright & Disclaimer */}
+          <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <p className="font-medium text-center md:text-left text-slate-400">
+              © {new Date().getFullYear()} Career4S India Education Advisory. All Rights Reserved.
+            </p>
+            <p className="text-[11px] text-center md:text-right max-w-xl text-slate-500 leading-relaxed">
+              <strong>Disclaimer:</strong> Career4S is an independent educational consultancy assisting with institutional &amp; merit guidance. All allotments are made in accordance with respective university/government counselling bodies.
             </p>
           </div>
         </div>

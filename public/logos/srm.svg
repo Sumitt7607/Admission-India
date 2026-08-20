@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 240" width="100%" height="100%">
+  <!-- SRM Golden Emblem Seal -->
+  <g transform="translate(30, 20)">
+    <circle cx="100" cy="100" r="95" fill="#BF953F" />
+    <circle cx="100" cy="100" r="88" fill="#ffffff" />
+    <circle cx="100" cy="100" r="76" fill="#135297" />
+    <!-- Sun Rays Burst -->
+    <circle cx="100" cy="100" r="45" fill="#BF953F" />
+    <!-- Book -->
+    <path d="M 80,105 Q 100,95 100,115 Q 100,95 120,105 L 120,130 Q 100,120 100,140 Q 100,120 80,130 Z" fill="#ffffff" stroke="#135297" stroke-width="2"/>
+    <!-- Circular Text -->
+    <text x="100" y="42" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#BF953F" letter-spacing="3">SRM UNIVERSITY</text>
+    <path d="M 50,150 Q 100,175 150,150 L 150,165 Q 100,190 50,165 Z" fill="#ffffff" stroke="#135297" stroke-width="1"/>
+    <text x="100" y="162" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#135297">LEARN • LEAP • LEAD</text>
+    <text x="100" y="180" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#BF953F">HARYANA</text>
+  </g>
+  <!-- SRM Text Block -->
+  <text x="260" y="115" font-family="Georgia, 'Times New Roman', serif" font-size="110" font-weight="900" letter-spacing="4" fill="#135297">SRM</text>
+  <!-- Divider -->
+  <line x1="260" y1="135" x2="620" y2="135" stroke="#135297" stroke-width="3" />
+  <text x="260" y="170" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" letter-spacing="3" fill="#135297">UNIVERSITY</text>
+  <text x="260" y="200" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" letter-spacing="2.5" fill="#8B1D2C">DELHI-NCR, SONEPAT</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 200" width="100%" height="100%">
+  <!-- Top Brand Name -->
+  <text x="325" y="80" font-family="'Times New Roman', Georgia, serif" font-size="62" font-weight="900" letter-spacing="4" text-anchor="middle" fill="#005B94">SHIV NADAR</text>
+  
+  <!-- Bracket lines and subtitle -->
+  <line x1="40" y1="105" x2="40" y2="155" stroke="#333333" stroke-width="2.5" />
+  <line x1="610" y1="105" x2="610" y2="155" stroke="#333333" stroke-width="2.5" />
+  
+  <text x="325" y="118" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="2" text-anchor="middle" fill="#444444">INSTITUTION OF EMINENCE DEEMED TO BE</text>
+  
+  <!-- UNIVERSITY with side horizontal laser lines -->
+  <line x1="65" y1="140" x2="150" y2="140" stroke="#0077BE" stroke-width="3" />
+  <text x="325" y="148" font-family="'Times New Roman', Georgia, serif" font-size="34" font-weight="bold" letter-spacing="6" text-anchor="middle" fill="#005B94">UNIVERSITY</text>
+  <line x1="500" y1="140" x2="585" y2="140" stroke="#0077BE" stroke-width="3" />
+  
+  <text x="325" y="180" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" letter-spacing="4" text-anchor="middle" fill="#444444">DELHI NCR</text>
+</svg>
